@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" author="true" classpath="mysql-connector-java-5.1.28.jar;D:\[verschobene Programme]\eclipse\plugins\org.junit_4.12.0.v201504281640\junit.jar;jinput-b29.jar;mysql.jar;D:\[verschobene Programme]\eclipse\plugins\org.hamcrest.core_1.3.0.v201303031735.jar;jssc-2.8.0.jar;jsoup-1.7.3.jar;RXTXcomm.jar;mysql-connector-java.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="imu,jinputjoystick,persistence,gui,rc,serialComm,os,webComm,test" source="1.8" sourcefiles="src/package-info.java,src/Launcher.java" sourcepath="src;Windows;Linux" splitindex="true" use="true" version="true"/>
+    </target>
+</project>
