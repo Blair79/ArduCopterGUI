@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="windows"/>
+	<classpathentry kind="src" path="linux"/>
+	<classpathentry kind="src" path="configuration"/>
+	<classpathentry kind="lib" path="jsoup-1.7.3.jar"/>
+	<classpathentry kind="lib" path="jssc-2.8.0.jar"/>
+	<classpathentry kind="lib" path="RXTXcomm.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="ArduCopterGUI"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="jinput-b29.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
