@@ -33,8 +33,8 @@ public class JFrameWindow extends javax.swing.JFrame {
 		// Set look and feel
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException | InstantiationException
-				| IllegalAccessException | UnsupportedLookAndFeelException e) {
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+				| UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
 
@@ -66,229 +66,126 @@ public class JFrameWindow extends javax.swing.JFrame {
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle("JInput Joystick Test");
 
-		jPanelAxes.setBorder(javax.swing.BorderFactory.createTitledBorder(null,
-				"Axes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION, null,
-				new java.awt.Color(0, 51, 204)));
+		jPanelAxes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Axes",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				null, new java.awt.Color(0, 51, 204)));
 
 		jLabelXYAxis.setText("X Axis / Y Axis");
 
-		jPanelXYAxis.setBorder(javax.swing.BorderFactory
-				.createLineBorder(new java.awt.Color(0, 0, 0)));
+		jPanelXYAxis.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 		jPanelXYAxis.setPreferredSize(new java.awt.Dimension(111, 111));
 
-		javax.swing.GroupLayout jPanelXYAxisLayout = new javax.swing.GroupLayout(
-				jPanelXYAxis);
+		javax.swing.GroupLayout jPanelXYAxisLayout = new javax.swing.GroupLayout(jPanelXYAxis);
 		jPanelXYAxis.setLayout(jPanelXYAxisLayout);
 		jPanelXYAxisLayout.setHorizontalGroup(jPanelXYAxisLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 109, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 109, Short.MAX_VALUE));
 		jPanelXYAxisLayout.setVerticalGroup(jPanelXYAxisLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 109, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 109, Short.MAX_VALUE));
 
-		javax.swing.GroupLayout jPanel_forAxisLayout = new javax.swing.GroupLayout(
-				jPanel_forAxis);
+		javax.swing.GroupLayout jPanel_forAxisLayout = new javax.swing.GroupLayout(jPanel_forAxis);
 		jPanel_forAxis.setLayout(jPanel_forAxisLayout);
 		jPanel_forAxisLayout.setHorizontalGroup(jPanel_forAxisLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 202, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 202, Short.MAX_VALUE));
 		jPanel_forAxisLayout.setVerticalGroup(jPanel_forAxisLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 0, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
 
-		javax.swing.GroupLayout jPanelAxesLayout = new javax.swing.GroupLayout(
-				jPanelAxes);
+		javax.swing.GroupLayout jPanelAxesLayout = new javax.swing.GroupLayout(jPanelAxes);
 		jPanelAxes.setLayout(jPanelAxesLayout);
+		jPanelAxesLayout.setHorizontalGroup(jPanelAxesLayout
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanelAxesLayout.createSequentialGroup()
+						.addGroup(jPanelAxesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+								.addGroup(jPanelAxesLayout.createSequentialGroup().addGap(58, 58, 58)
+										.addComponent(jLabelXYAxis))
+								.addGroup(jPanelAxesLayout.createSequentialGroup().addGap(37, 37, 37).addComponent(
+										jPanelXYAxis, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(jPanel_forAxis, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addContainerGap()));
 		jPanelAxesLayout
-				.setHorizontalGroup(jPanelAxesLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanelAxesLayout
-										.createSequentialGroup()
-										.addGroup(
-												jPanelAxesLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanelAxesLayout
-																		.createSequentialGroup()
-																		.addGap(58,
-																				58,
-																				58)
-																		.addComponent(
-																				jLabelXYAxis))
-														.addGroup(
-																jPanelAxesLayout
-																		.createSequentialGroup()
-																		.addGap(37,
-																				37,
-																				37)
-																		.addComponent(
-																				jPanelXYAxis,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(
-												jPanel_forAxis,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addContainerGap()));
-		jPanelAxesLayout
-				.setVerticalGroup(jPanelAxesLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanelAxesLayout
-										.createSequentialGroup()
-										.addComponent(jLabelXYAxis)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												jPanelXYAxis,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 16, Short.MAX_VALUE))
-						.addComponent(jPanel_forAxis,
-								javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE,
-								Short.MAX_VALUE));
+				.setVerticalGroup(jPanelAxesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(jPanelAxesLayout.createSequentialGroup()
+								.addComponent(jLabelXYAxis)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(
+										jPanelXYAxis, javax.swing.GroupLayout.PREFERRED_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addGap(0, 16, Short.MAX_VALUE))
+						.addComponent(jPanel_forAxis, javax.swing.GroupLayout.DEFAULT_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
-		jPanelButtons.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				null, "Buttons",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION, null,
-				new java.awt.Color(0, 51, 204)));
+		jPanelButtons.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buttons",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				null, new java.awt.Color(0, 51, 204)));
 
-		javax.swing.GroupLayout jPanelButtonsLayout = new javax.swing.GroupLayout(
-				jPanelButtons);
+		javax.swing.GroupLayout jPanelButtonsLayout = new javax.swing.GroupLayout(jPanelButtons);
 		jPanelButtons.setLayout(jPanelButtonsLayout);
 		jPanelButtonsLayout.setHorizontalGroup(jPanelButtonsLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 248, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 248, Short.MAX_VALUE));
 		jPanelButtonsLayout.setVerticalGroup(jPanelButtonsLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 112, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 112, Short.MAX_VALUE));
 
-		jPanelHatSwitch.setBorder(javax.swing.BorderFactory.createTitledBorder(
-				null, "Hat Switch",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION, null,
-				new java.awt.Color(0, 51, 204)));
+		jPanelHatSwitch.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hat Switch",
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				null, new java.awt.Color(0, 51, 204)));
 
-		javax.swing.GroupLayout jPanelHatSwitchLayout = new javax.swing.GroupLayout(
-				jPanelHatSwitch);
+		javax.swing.GroupLayout jPanelHatSwitchLayout = new javax.swing.GroupLayout(jPanelHatSwitch);
 		jPanelHatSwitch.setLayout(jPanelHatSwitchLayout);
 		jPanelHatSwitchLayout.setHorizontalGroup(jPanelHatSwitchLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 121, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 121, Short.MAX_VALUE));
 		jPanelHatSwitchLayout.setVerticalGroup(jPanelHatSwitchLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 0, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
 
-		jComboBox_controllers
-				.addActionListener(new java.awt.event.ActionListener() {
-					public void actionPerformed(java.awt.event.ActionEvent evt) {
-						jComboBox_controllersActionPerformed(evt);
-					}
-				});
+		jComboBox_controllers.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				jComboBox_controllersActionPerformed(evt);
+			}
+		});
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(
-														layout.createSequentialGroup()
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.LEADING)
-																				.addGroup(
-																						layout.createSequentialGroup()
-																								.addComponent(
-																										jPanelButtons,
-																										javax.swing.GroupLayout.PREFERRED_SIZE,
-																										javax.swing.GroupLayout.DEFAULT_SIZE,
-																										javax.swing.GroupLayout.PREFERRED_SIZE)
-																								.addPreferredGap(
-																										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																								.addComponent(
-																										jPanelHatSwitch,
-																										javax.swing.GroupLayout.DEFAULT_SIZE,
-																										javax.swing.GroupLayout.DEFAULT_SIZE,
-																										Short.MAX_VALUE))
-																				.addComponent(
-																						jPanelAxes,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						Short.MAX_VALUE))
-																.addContainerGap())
-												.addGroup(
-														javax.swing.GroupLayout.Alignment.TRAILING,
-														layout.createSequentialGroup()
-																.addGap(0,
-																		0,
-																		Short.MAX_VALUE)
-																.addComponent(
-																		jComboBox_controllers,
-																		javax.swing.GroupLayout.PREFERRED_SIZE,
-																		237,
-																		javax.swing.GroupLayout.PREFERRED_SIZE)
-																.addGap(88, 88,
-																		88)))));
-		layout.setVerticalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addContainerGap(
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)
-								.addComponent(jComboBox_controllers,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(jPanelAxes,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING,
-												false)
-												.addComponent(
-														jPanelButtons,
+		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup()
+								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addGroup(layout.createSequentialGroup()
+												.addComponent(jPanelButtons, javax.swing.GroupLayout.PREFERRED_SIZE,
 														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(
-														jPanelHatSwitch,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE))
-								.addContainerGap()));
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(jPanelHatSwitch, javax.swing.GroupLayout.DEFAULT_SIZE,
+														javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+										.addComponent(jPanelAxes, javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addContainerGap())
+						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+								layout.createSequentialGroup().addGap(0, 0, Short.MAX_VALUE)
+										.addComponent(jComboBox_controllers, javax.swing.GroupLayout.PREFERRED_SIZE,
+												237, javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addGap(88, 88, 88)))));
+		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(jComboBox_controllers, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+						.addComponent(jPanelAxes, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+								.addComponent(jPanelButtons, javax.swing.GroupLayout.DEFAULT_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(jPanelHatSwitch, javax.swing.GroupLayout.DEFAULT_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addContainerGap()));
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void jComboBox_controllersActionPerformed(
-			java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox_controllersActionPerformed
+	private void jComboBox_controllersActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox_controllersActionPerformed
 		// When another controller is selected we have to remove old stuff.
 		jPanelButtons.removeAll();
 		jPanelButtons.repaint();
@@ -324,8 +221,7 @@ public class JFrameWindow extends javax.swing.JFrame {
 
 	public void setXYAxis(int xPercentage, int yPercentage) {
 		Graphics2D g2d = (Graphics2D) jPanelXYAxis.getGraphics();
-		g2d.clearRect(1, 1, jPanelXYAxis.getWidth() - 2,
-				jPanelXYAxis.getHeight() - 2);
+		g2d.clearRect(1, 1, jPanelXYAxis.getWidth() - 2, jPanelXYAxis.getHeight() - 2);
 		g2d.fillOval(xPercentage, yPercentage, 10, 10);
 	}
 
@@ -339,8 +235,7 @@ public class JFrameWindow extends javax.swing.JFrame {
 		int circleSize = 100;
 
 		Graphics2D g2d = (Graphics2D) jPanelHatSwitch.getGraphics();
-		g2d.clearRect(5, 15, jPanelHatSwitch.getWidth() - 10,
-				jPanelHatSwitch.getHeight() - 22);
+		g2d.clearRect(5, 15, jPanelHatSwitch.getWidth() - 10, jPanelHatSwitch.getHeight() - 22);
 		g2d.drawOval(20, 22, circleSize, circleSize);
 
 		if (Float.compare(hatSwitchPosition, Component.POV.OFF) == 0)

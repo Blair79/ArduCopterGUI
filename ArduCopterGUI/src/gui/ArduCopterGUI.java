@@ -64,7 +64,7 @@ public final class ArduCopterGUI {
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			if (txtArea_Output.getDocument().getLength() > 0) {
-				msg.setText(Messages.getString("Status.LogDelete"));   //$NON-NLS-1$
+				msg.setText(Messages.getString("Status.LogDelete")); //$NON-NLS-1$
 			}
 			txtArea_Output.setText(null);
 		}
@@ -76,12 +76,10 @@ public final class ArduCopterGUI {
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			if (OS.isOS().contains(Messages.getString("OS.Linux"))) { //$NON-NLS-1$
-				SerialrxtxCommunication.openSerialPort((String) serial_Device
-						.getSelectedItem());
+				SerialrxtxCommunication.openSerialPort((String) serial_Device.getSelectedItem());
 			}
 			if (OS.isOS().equals(Messages.getString("OS.Windows"))) { //$NON-NLS-1$
-				SerialjsscCommunication.openSerialPort((String) serial_Device
-						.getSelectedItem());
+				SerialjsscCommunication.openSerialPort((String) serial_Device.getSelectedItem());
 			}
 			msg.setText(Messages.getString("Status.Serial.Connect_begin").concat((String) serial_Device //$NON-NLS-1$
 					.getSelectedItem()) + Messages.getString("Status.Serial.Connect_end")); //$NON-NLS-1$
@@ -95,11 +93,11 @@ public final class ArduCopterGUI {
 
 			if (OS.isOS().contains(Messages.getString("OS.Linux"))) { //$NON-NLS-1$
 				SerialrxtxCommunication.sendSerialPort(Messages.getString("Sonderzeichen.IntNull"));// + //$NON-NLS-1$
-															// "\n");
+				// "\n");
 			}
 			if (OS.isOS().equals(Messages.getString("OS.Windows"))) { //$NON-NLS-1$
 				SerialjsscCommunication.sendSerialPort(Messages.getString("Sonderzeichen.IntNull"));// + //$NON-NLS-1$
-															// "\n");
+				// "\n");
 			}
 
 			if (OS.isOS().contains(Messages.getString("OS.Linux"))) { //$NON-NLS-1$
@@ -397,7 +395,7 @@ public final class ArduCopterGUI {
 	private final ButtonGroup buttonGroup_horizonFilter = new ButtonGroup();
 	private JPanel Chipinfo;
 	private static JComboBox<String> comboBox = new javax.swing.JComboBox<String>();
-	
+
 	private JPanel Filter;
 	private JFrame frame;
 	private JPanel Gyroskop;
@@ -536,7 +534,9 @@ public final class ArduCopterGUI {
 		// set_Output(string);
 		if (input.contains(Messages.getString("Sonderzeichen.EOL")) && tab_Control.isShowing()) { //$NON-NLS-1$
 			// MySQLConnection.insertAccX(input);
-			String[] received = input.replaceAll(Messages.getString("Sonderzeichen.EOL"), Messages.getString("Sonderzeichen.Space")).split(Messages.getString("Sonderzeichen.Split")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			String[] received = input
+					.replaceAll(Messages.getString("Sonderzeichen.EOL"), Messages.getString("Sonderzeichen.Space")) //$NON-NLS-1$ //$NON-NLS-2$
+					.split(Messages.getString("Sonderzeichen.Split")); //$NON-NLS-1$
 			for (int i = 0; i < received.length; ++i) {
 				switch (i + 1) {
 				case 1:
@@ -773,12 +773,9 @@ public final class ArduCopterGUI {
 		}
 		// System.out.println(receive);
 		if (chckbx_Autoscroll.isSelected()) {
-			txtArea_Output.setCaretPosition(txtArea_Output.getDocument()
-					.getLength());
+			txtArea_Output.setCaretPosition(txtArea_Output.getDocument().getLength());
 		}
 	}
-
-	
 
 	/**
 	 * Create the application.
@@ -813,19 +810,20 @@ public final class ArduCopterGUI {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				JFileChooser chooser = new JFileChooser();
-				chooser.addChoosableFileFilter(new FileNameExtensionFilter(
-						Messages.getString("FileChooser.Pictures"), Messages.getString("Postfix.gif"), Messages.getString("Postfix.png"), Messages.getString("Postfix.jpg"))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+				chooser.addChoosableFileFilter(new FileNameExtensionFilter(Messages.getString("FileChooser.Pictures"), //$NON-NLS-1$
+						Messages.getString("Postfix.gif"), Messages.getString("Postfix.png"), //$NON-NLS-1$ //$NON-NLS-2$
+						Messages.getString("Postfix.jpg"))); //$NON-NLS-1$
 
-				chooser.addChoosableFileFilter(new FileNameExtensionFilter(
-						Messages.getString("FileChooser.Text"), Messages.getString("Postfix.txt"), Messages.getString("Postfix.png"), Messages.getString("Postfix.jpg"))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+				chooser.addChoosableFileFilter(new FileNameExtensionFilter(Messages.getString("FileChooser.Text"), //$NON-NLS-1$
+						Messages.getString("Postfix.txt"), Messages.getString("Postfix.png"), //$NON-NLS-1$ //$NON-NLS-2$
+						Messages.getString("Postfix.jpg"))); //$NON-NLS-1$
 				int rueckgabeWert = chooser.showOpenDialog(null);
 				if (rueckgabeWert == JFileChooser.APPROVE_OPTION) {
 					// Ausgabe der ausgewaehlten Datei
 					System.out.println(Messages.getString("Debug.FileOpen") //$NON-NLS-1$
 							+ chooser.getSelectedFile().getName());
 					try {
-						in = new BufferedReader(new FileReader(chooser
-								.getSelectedFile().getPath()));
+						in = new BufferedReader(new FileReader(chooser.getSelectedFile().getPath()));
 						String zeile = null;
 						while ((zeile = in.readLine()) != null) {
 							txtArea_Output.append(zeile + Messages.getString("Sonderzeichen.EOL")); //$NON-NLS-1$
@@ -856,8 +854,7 @@ public final class ArduCopterGUI {
 							+ chooser.getSelectedFile().getName());
 
 					try {
-						BufferedWriter bw = new BufferedWriter(new FileWriter(
-								chooser.getSelectedFile().getPath()));
+						BufferedWriter bw = new BufferedWriter(new FileWriter(chooser.getSelectedFile().getPath()));
 
 						String[] tab = txtArea_Output.getText().split(Messages.getString("Sonderzeichen.EOL")); //$NON-NLS-1$
 
@@ -868,8 +865,7 @@ public final class ArduCopterGUI {
 
 						bw.close();
 					} catch (IOException e1) {
-						System.out
-								.println(Messages.getString("Debug.FileException")); //$NON-NLS-1$
+						System.out.println(Messages.getString("Debug.FileException")); //$NON-NLS-1$
 					}
 				}
 			}
@@ -934,10 +930,10 @@ public final class ArduCopterGUI {
 		buttonGroup_Baud.add(rdbtnmntm_Baud);
 		mnBaud.add(rdbtnmntm_Baud);
 		rdbtnmntm_Baud.setSelected(true);
-		
+
 		separator_2 = new JSeparator();
 		mnDatei.add(separator_2);
-		
+
 		mntmMysqlServer = new JMenuItem(Messages.getString("ArduCopterGUI.mntmMysqlServer.text")); //$NON-NLS-1$
 		mnDatei.add(mntmMysqlServer);
 
@@ -959,10 +955,10 @@ public final class ArduCopterGUI {
 			}
 		});
 		mnDatei.add(mntmProgramClose);
-		
+
 		mnSprache = new JMenu(Messages.getString("Menu.Language")); //$NON-NLS-1$
 		menuBar.add(mnSprache);
-		
+
 		mntmDeutsch = new JMenuItem(Messages.getString("Menu.Deutsch")); //$NON-NLS-1$
 		mntmDeutsch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -970,7 +966,7 @@ public final class ArduCopterGUI {
 			}
 		});
 		mnSprache.add(mntmDeutsch);
-		
+
 		mntmEnglisch = new JMenuItem(Messages.getString("Menu.English")); //$NON-NLS-1$
 		mntmEnglisch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -984,20 +980,14 @@ public final class ArduCopterGUI {
 		toolBar.setBorderPainted(false);
 		getFrame().getContentPane().add(toolBar, BorderLayout.NORTH);
 
-		button = new JButton(
-				new ImageIcon(
-						ArduCopterGUI.class
-								.getResource(Messages.getString("Icon.Connect")))); //$NON-NLS-1$
+		button = new JButton(new ImageIcon(ArduCopterGUI.class.getResource(Messages.getString("Icon.Connect")))); //$NON-NLS-1$
 		button.setMinimumSize(new Dimension(66, 42));
 		button.setMaximumSize(new Dimension(66, 42));
 		button.setPreferredSize(new Dimension(66, 42));
 		button.setToolTipText(Messages.getString("Infotext.ConnectButton")); //$NON-NLS-1$
 		toolBar.add(button);
 
-		button_1 = new JButton(
-				new ImageIcon(
-						ArduCopterGUI.class
-								.getResource(Messages.getString("Icon.Disconnect")))); //$NON-NLS-1$
+		button_1 = new JButton(new ImageIcon(ArduCopterGUI.class.getResource(Messages.getString("Icon.Disconnect")))); //$NON-NLS-1$
 		button_1.setToolTipText(Messages.getString("Infotext.DisonnectButton")); //$NON-NLS-1$
 		toolBar.add(button_1);
 
@@ -1005,8 +995,7 @@ public final class ArduCopterGUI {
 		getFrame().getContentPane().add(tabbedPane, BorderLayout.CENTER);
 
 		tab_Control = new JDesktopPane();
-		tab_Control
-				.setToolTipText(Messages.getString("Infotext.TabControl")); //$NON-NLS-1$
+		tab_Control.setToolTipText(Messages.getString("Infotext.TabControl")); //$NON-NLS-1$
 		tabbedPane.addTab(Messages.getString("Tab.Title.Control"), null, tab_Control, null); //$NON-NLS-1$
 		GridBagLayout gbl_tab_Control = new GridBagLayout();
 		gbl_tab_Control.columnWidths = new int[] { 766, 0 };
@@ -1024,10 +1013,8 @@ public final class ArduCopterGUI {
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] { 193, 291, 187, 258, 0 };
 		gbl_panel.rowHeights = new int[] { 0, 160, 51, 68, 0, 0 };
-		gbl_panel.columnWeights = new double[] { 1.0, 0.0, 1.0, 1.0,
-				Double.MIN_VALUE };
-		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0,
-				Double.MIN_VALUE };
+		gbl_panel.columnWeights = new double[] { 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE };
+		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
 		panel.setLayout(gbl_panel);
 
 		Accelerometer = new JPanel();
@@ -1043,8 +1030,7 @@ public final class ArduCopterGUI {
 		gbl_Accelerometer.columnWidths = new int[] { 53, 53 };
 		gbl_Accelerometer.rowHeights = new int[] { 24, 0, 0, 0, 0, 0 };
 		gbl_Accelerometer.columnWeights = new double[] { 0.0, 0.0 };
-		gbl_Accelerometer.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_Accelerometer.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		Accelerometer.setLayout(gbl_Accelerometer);
 
 		JLabel lblX = new JLabel(Messages.getString("Dimension.X")); //$NON-NLS-1$
@@ -1074,7 +1060,7 @@ public final class ArduCopterGUI {
 		Accelerometer.add(lblY, gbc_lblY);
 		lblY.setHorizontalAlignment(SwingConstants.LEFT);
 
-		acc_Y = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		acc_Y = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_acc_Y = new GridBagConstraints();
 		gbc_acc_Y.fill = GridBagConstraints.HORIZONTAL;
 		gbc_acc_Y.insets = new Insets(0, 0, 5, 0);
@@ -1092,7 +1078,7 @@ public final class ArduCopterGUI {
 		Accelerometer.add(lblZ, gbc_lblZ);
 		lblZ.setHorizontalAlignment(SwingConstants.LEFT);
 
-		acc_Z = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		acc_Z = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_acc_Z = new GridBagConstraints();
 		gbc_acc_Z.fill = GridBagConstraints.HORIZONTAL;
 		gbc_acc_Z.insets = new Insets(0, 0, 5, 0);
@@ -1110,7 +1096,7 @@ public final class ArduCopterGUI {
 		Accelerometer.add(lblRoll, gbc_lblRoll);
 		lblRoll.setHorizontalAlignment(SwingConstants.LEFT);
 
-		acc_Roll = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		acc_Roll = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_acc_Roll = new GridBagConstraints();
 		gbc_acc_Roll.fill = GridBagConstraints.HORIZONTAL;
 		gbc_acc_Roll.insets = new Insets(0, 0, 5, 0);
@@ -1128,7 +1114,7 @@ public final class ArduCopterGUI {
 		Accelerometer.add(lblPitch, gbc_lblPitch);
 		lblPitch.setHorizontalAlignment(SwingConstants.LEFT);
 
-		acc_Pitch = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		acc_Pitch = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_acc_Pitch = new GridBagConstraints();
 		gbc_acc_Pitch.fill = GridBagConstraints.HORIZONTAL;
 		gbc_acc_Pitch.gridx = 1;
@@ -1149,10 +1135,8 @@ public final class ArduCopterGUI {
 		GridBagLayout gbl_Chipinfo = new GridBagLayout();
 		gbl_Chipinfo.columnWidths = new int[] { 53, 61, 0, 0, 0, 0, 0 };
 		gbl_Chipinfo.rowHeights = new int[] { 24, 24, 0, 0, 0, 0 };
-		gbl_Chipinfo.columnWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0,
-				1.0, Double.MIN_VALUE };
-		gbl_Chipinfo.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_Chipinfo.columnWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
+		gbl_Chipinfo.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		Chipinfo.setLayout(gbl_Chipinfo);
 
 		JLabel lblChipname = new JLabel(Messages.getString("Label.Chipname")); //$NON-NLS-1$
@@ -1197,168 +1181,168 @@ public final class ArduCopterGUI {
 		gbc_lblResolution.gridy = 0;
 		Chipinfo.add(lblResolution, gbc_lblResolution);
 
-		lblAcc = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$ //$NON-NLS-1$
+		lblAcc = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblAcc = new GridBagConstraints();
 		gbc_lblAcc.insets = new Insets(0, 0, 5, 5);
 		gbc_lblAcc.gridx = 0;
 		gbc_lblAcc.gridy = 1;
 		Chipinfo.add(lblAcc, gbc_lblAcc);
 
-		lblNewLabel_1 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_1 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_1.gridx = 1;
 		gbc_lblNewLabel_1.gridy = 1;
 		Chipinfo.add(lblNewLabel_1, gbc_lblNewLabel_1);
 
-		lblNewLabel_4 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_4 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
 		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_4.gridx = 2;
 		gbc_lblNewLabel_4.gridy = 1;
 		Chipinfo.add(lblNewLabel_4, gbc_lblNewLabel_4);
 
-		lblNewLabel_8 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_8 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_8 = new GridBagConstraints();
 		gbc_lblNewLabel_8.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_8.gridx = 3;
 		gbc_lblNewLabel_8.gridy = 1;
 		Chipinfo.add(lblNewLabel_8, gbc_lblNewLabel_8);
 
-		lblNewLabel_12 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_12 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_12 = new GridBagConstraints();
 		gbc_lblNewLabel_12.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_12.gridx = 4;
 		gbc_lblNewLabel_12.gridy = 1;
 		Chipinfo.add(lblNewLabel_12, gbc_lblNewLabel_12);
 
-		lblNewLabel_16 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_16 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_16 = new GridBagConstraints();
 		gbc_lblNewLabel_16.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_16.gridx = 5;
 		gbc_lblNewLabel_16.gridy = 1;
 		Chipinfo.add(lblNewLabel_16, gbc_lblNewLabel_16);
 
-		lblMag = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblMag = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblMag = new GridBagConstraints();
 		gbc_lblMag.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMag.gridx = 0;
 		gbc_lblMag.gridy = 2;
 		Chipinfo.add(lblMag, gbc_lblMag);
 
-		lblNewLabel = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel.gridx = 1;
 		gbc_lblNewLabel.gridy = 2;
 		Chipinfo.add(lblNewLabel, gbc_lblNewLabel);
 
-		lblNewLabel_5 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_5 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
 		gbc_lblNewLabel_5.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_5.gridx = 2;
 		gbc_lblNewLabel_5.gridy = 2;
 		Chipinfo.add(lblNewLabel_5, gbc_lblNewLabel_5);
 
-		lblNewLabel_9 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_9 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_9 = new GridBagConstraints();
 		gbc_lblNewLabel_9.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_9.gridx = 3;
 		gbc_lblNewLabel_9.gridy = 2;
 		Chipinfo.add(lblNewLabel_9, gbc_lblNewLabel_9);
 
-		lblNewLabel_15 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_15 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_15 = new GridBagConstraints();
 		gbc_lblNewLabel_15.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_15.gridx = 4;
 		gbc_lblNewLabel_15.gridy = 2;
 		Chipinfo.add(lblNewLabel_15, gbc_lblNewLabel_15);
 
-		lblNewLabel_17 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_17 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_17 = new GridBagConstraints();
 		gbc_lblNewLabel_17.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_17.gridx = 5;
 		gbc_lblNewLabel_17.gridy = 2;
 		Chipinfo.add(lblNewLabel_17, gbc_lblNewLabel_17);
 
-		lblGyro = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblGyro = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblGyro = new GridBagConstraints();
 		gbc_lblGyro.insets = new Insets(0, 0, 5, 5);
 		gbc_lblGyro.gridx = 0;
 		gbc_lblGyro.gridy = 3;
 		Chipinfo.add(lblGyro, gbc_lblGyro);
 
-		lblNewLabel_2 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_2 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
 		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_2.gridx = 1;
 		gbc_lblNewLabel_2.gridy = 3;
 		Chipinfo.add(lblNewLabel_2, gbc_lblNewLabel_2);
 
-		lblNewLabel_6 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_6 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
 		gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_6.gridx = 2;
 		gbc_lblNewLabel_6.gridy = 3;
 		Chipinfo.add(lblNewLabel_6, gbc_lblNewLabel_6);
 
-		lblNewLabel_10 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_10 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_10 = new GridBagConstraints();
 		gbc_lblNewLabel_10.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_10.gridx = 3;
 		gbc_lblNewLabel_10.gridy = 3;
 		Chipinfo.add(lblNewLabel_10, gbc_lblNewLabel_10);
 
-		lblNewLabel_14 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_14 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_14 = new GridBagConstraints();
 		gbc_lblNewLabel_14.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_14.gridx = 4;
 		gbc_lblNewLabel_14.gridy = 3;
 		Chipinfo.add(lblNewLabel_14, gbc_lblNewLabel_14);
 
-		lblNewLabel_18 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_18 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_18 = new GridBagConstraints();
 		gbc_lblNewLabel_18.insets = new Insets(0, 0, 5, 0);
 		gbc_lblNewLabel_18.gridx = 5;
 		gbc_lblNewLabel_18.gridy = 3;
 		Chipinfo.add(lblNewLabel_18, gbc_lblNewLabel_18);
 
-		lblBmp = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblBmp = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblBmp = new GridBagConstraints();
 		gbc_lblBmp.insets = new Insets(0, 0, 0, 5);
 		gbc_lblBmp.gridx = 0;
 		gbc_lblBmp.gridy = 4;
 		Chipinfo.add(lblBmp, gbc_lblBmp);
 
-		lblNewLabel_3 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_3 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
 		gbc_lblNewLabel_3.insets = new Insets(0, 0, 0, 5);
 		gbc_lblNewLabel_3.gridx = 1;
 		gbc_lblNewLabel_3.gridy = 4;
 		Chipinfo.add(lblNewLabel_3, gbc_lblNewLabel_3);
 
-		lblNewLabel_7 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_7 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_7 = new GridBagConstraints();
 		gbc_lblNewLabel_7.insets = new Insets(0, 0, 0, 5);
 		gbc_lblNewLabel_7.gridx = 2;
 		gbc_lblNewLabel_7.gridy = 4;
 		Chipinfo.add(lblNewLabel_7, gbc_lblNewLabel_7);
 
-		lblNewLabel_11 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_11 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_11 = new GridBagConstraints();
 		gbc_lblNewLabel_11.insets = new Insets(0, 0, 0, 5);
 		gbc_lblNewLabel_11.gridx = 3;
 		gbc_lblNewLabel_11.gridy = 4;
 		Chipinfo.add(lblNewLabel_11, gbc_lblNewLabel_11);
 
-		lblNewLabel_13 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_13 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_13 = new GridBagConstraints();
 		gbc_lblNewLabel_13.insets = new Insets(0, 0, 0, 5);
 		gbc_lblNewLabel_13.gridx = 4;
 		gbc_lblNewLabel_13.gridy = 4;
 		Chipinfo.add(lblNewLabel_13, gbc_lblNewLabel_13);
 
-		lblNewLabel_19 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		lblNewLabel_19 = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_19 = new GridBagConstraints();
 		gbc_lblNewLabel_19.gridx = 5;
 		gbc_lblNewLabel_19.gridy = 4;
@@ -1386,8 +1370,7 @@ public final class ArduCopterGUI {
 		gbc_horizonPanel.gridy = 0;
 		Horizont.add(horizonPanel, gbc_horizonPanel);
 		horizonPanel.setBorder(null);
-		horizonPanel.setBackground(UIManager
-				.getColor(Messages.getString("FileChooser.Background"))); //$NON-NLS-1$
+		horizonPanel.setBackground(UIManager.getColor(Messages.getString("FileChooser.Background"))); //$NON-NLS-1$
 		horizonPanel.setToolTipText(Messages.getString("Infotext.Horizon")); //$NON-NLS-1$
 		GridBagLayout gbl_horizonPanel = new GridBagLayout();
 		gbl_horizonPanel.columnWidths = new int[] { 0 };
@@ -1408,10 +1391,8 @@ public final class ArduCopterGUI {
 		GridBagLayout gbl_Magnetometer = new GridBagLayout();
 		gbl_Magnetometer.columnWidths = new int[] { 53, 53, 0 };
 		gbl_Magnetometer.rowHeights = new int[] { 24, 0, 0, 0, 0 };
-		gbl_Magnetometer.columnWeights = new double[] { 0.0, 0.0,
-				Double.MIN_VALUE };
-		gbl_Magnetometer.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_Magnetometer.columnWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
+		gbl_Magnetometer.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		Magnetometer.setLayout(gbl_Magnetometer);
 
 		JLabel lblX_1 = new JLabel(Messages.getString("Dimension.X")); //$NON-NLS-1$
@@ -1422,7 +1403,7 @@ public final class ArduCopterGUI {
 		gbc_lblX_1.gridy = 0;
 		Magnetometer.add(lblX_1, gbc_lblX_1);
 
-		mag_X = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		mag_X = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_mag_X = new GridBagConstraints();
 		gbc_mag_X.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mag_X.insets = new Insets(0, 0, 5, 0);
@@ -1439,7 +1420,7 @@ public final class ArduCopterGUI {
 		gbc_lblY_1.gridy = 1;
 		Magnetometer.add(lblY_1, gbc_lblY_1);
 
-		mag_Y = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		mag_Y = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_mag_Y = new GridBagConstraints();
 		gbc_mag_Y.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mag_Y.insets = new Insets(0, 0, 5, 0);
@@ -1456,7 +1437,7 @@ public final class ArduCopterGUI {
 		gbc_lblZ_1.gridy = 2;
 		Magnetometer.add(lblZ_1, gbc_lblZ_1);
 
-		mag_Z = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		mag_Z = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_mag_Z = new GridBagConstraints();
 		gbc_mag_Z.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mag_Z.insets = new Insets(0, 0, 5, 0);
@@ -1473,7 +1454,7 @@ public final class ArduCopterGUI {
 		gbc_lblHeading.gridy = 3;
 		Magnetometer.add(lblHeading, gbc_lblHeading);
 
-		mag_Heading = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		mag_Heading = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_mag_Heading = new GridBagConstraints();
 		gbc_mag_Heading.fill = GridBagConstraints.HORIZONTAL;
 		gbc_mag_Heading.gridx = 1;
@@ -1493,10 +1474,8 @@ public final class ArduCopterGUI {
 		GridBagLayout gbl_AccMagFusion = new GridBagLayout();
 		gbl_AccMagFusion.columnWidths = new int[] { 53, 53, 0 };
 		gbl_AccMagFusion.rowHeights = new int[] { 24, 0, 0, 0 };
-		gbl_AccMagFusion.columnWeights = new double[] { 0.0, 0.0,
-				Double.MIN_VALUE };
-		gbl_AccMagFusion.rowWeights = new double[] { 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_AccMagFusion.columnWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
+		gbl_AccMagFusion.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		AccMagFusion.setLayout(gbl_AccMagFusion);
 
 		JLabel lblRoll_1 = new JLabel(Messages.getString("Movement.Roll")); //$NON-NLS-1$
@@ -1508,7 +1487,7 @@ public final class ArduCopterGUI {
 		AccMagFusion.add(lblRoll_1, gbc_lblRoll_1);
 		lblRoll_1.setHorizontalAlignment(SwingConstants.LEFT);
 
-		fusion_Roll = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		fusion_Roll = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_fusion_Roll = new GridBagConstraints();
 		gbc_fusion_Roll.anchor = GridBagConstraints.EAST;
 		gbc_fusion_Roll.insets = new Insets(0, 0, 5, 0);
@@ -1526,7 +1505,7 @@ public final class ArduCopterGUI {
 		AccMagFusion.add(lblPitch_1, gbc_lblPitch_1);
 		lblPitch_1.setHorizontalAlignment(SwingConstants.LEFT);
 
-		fusion_Pitch = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		fusion_Pitch = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_fusion_Pitch = new GridBagConstraints();
 		gbc_fusion_Pitch.anchor = GridBagConstraints.EAST;
 		gbc_fusion_Pitch.insets = new Insets(0, 0, 5, 0);
@@ -1544,7 +1523,7 @@ public final class ArduCopterGUI {
 		AccMagFusion.add(lblHeading_1, gbc_lblHeading_1);
 		lblHeading_1.setHorizontalAlignment(SwingConstants.LEFT);
 
-		fusion_Heading = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		fusion_Heading = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_fusion_Heading = new GridBagConstraints();
 		gbc_fusion_Heading.anchor = GridBagConstraints.EAST;
 		gbc_fusion_Heading.gridx = 1;
@@ -1564,10 +1543,8 @@ public final class ArduCopterGUI {
 		GridBagLayout gbl_Luftdruckmesser = new GridBagLayout();
 		gbl_Luftdruckmesser.columnWidths = new int[] { 53, 53, 0 };
 		gbl_Luftdruckmesser.rowHeights = new int[] { 24, 0, 0, 0, 0 };
-		gbl_Luftdruckmesser.columnWeights = new double[] { 0.0, 1.0,
-				Double.MIN_VALUE };
-		gbl_Luftdruckmesser.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_Luftdruckmesser.columnWeights = new double[] { 0.0, 1.0, Double.MIN_VALUE };
+		gbl_Luftdruckmesser.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		Luftdruckmesser.setLayout(gbl_Luftdruckmesser);
 
 		JLabel lblTemperatur = new JLabel(Messages.getString("Label.Temperature")); //$NON-NLS-1$
@@ -1578,7 +1555,7 @@ public final class ArduCopterGUI {
 		gbc_lblTemperatur.gridy = 0;
 		Luftdruckmesser.add(lblTemperatur, gbc_lblTemperatur);
 
-		cel = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		cel = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_cel = new GridBagConstraints();
 		gbc_cel.anchor = GridBagConstraints.EAST;
 		gbc_cel.insets = new Insets(0, 0, 5, 0);
@@ -1596,7 +1573,7 @@ public final class ArduCopterGUI {
 		Luftdruckmesser.add(lblHpa, gbc_lblHpa);
 		lblHpa.setHorizontalAlignment(SwingConstants.LEFT);
 
-		hPa = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		hPa = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_hPa = new GridBagConstraints();
 		gbc_hPa.anchor = GridBagConstraints.EAST;
 		gbc_hPa.insets = new Insets(0, 0, 5, 0);
@@ -1613,7 +1590,7 @@ public final class ArduCopterGUI {
 		gbc_lblHhe.gridy = 2;
 		Luftdruckmesser.add(lblHhe, gbc_lblHhe);
 
-		alt = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		alt = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_alt = new GridBagConstraints();
 		gbc_alt.anchor = GridBagConstraints.EAST;
 		gbc_alt.insets = new Insets(0, 0, 5, 0);
@@ -1630,7 +1607,7 @@ public final class ArduCopterGUI {
 		gbc_lblVariometer.gridy = 3;
 		Luftdruckmesser.add(lblVariometer, gbc_lblVariometer);
 
-		vario = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		vario = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_vario = new GridBagConstraints();
 		gbc_vario.anchor = GridBagConstraints.EAST;
 		gbc_vario.gridx = 1;
@@ -1651,8 +1628,7 @@ public final class ArduCopterGUI {
 		gbl_Gyroskop.columnWidths = new int[] { 53, 61, 0 };
 		gbl_Gyroskop.rowHeights = new int[] { 24, 0, 0, 0 };
 		gbl_Gyroskop.columnWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
-		gbl_Gyroskop.rowWeights = new double[] { 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_Gyroskop.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		Gyroskop.setLayout(gbl_Gyroskop);
 
 		JLabel lblX_2 = new JLabel(Messages.getString("Dimension.X")); //$NON-NLS-1$
@@ -1663,7 +1639,7 @@ public final class ArduCopterGUI {
 		gbc_lblX_2.gridy = 0;
 		Gyroskop.add(lblX_2, gbc_lblX_2);
 
-		gyr_X = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		gyr_X = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_gyr_X = new GridBagConstraints();
 		gbc_gyr_X.anchor = GridBagConstraints.EAST;
 		gbc_gyr_X.insets = new Insets(0, 0, 5, 0);
@@ -1680,7 +1656,7 @@ public final class ArduCopterGUI {
 		gbc_lblY_2.gridy = 1;
 		Gyroskop.add(lblY_2, gbc_lblY_2);
 
-		gyr_Y = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		gyr_Y = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_gyr_Y = new GridBagConstraints();
 		gbc_gyr_Y.anchor = GridBagConstraints.EAST;
 		gbc_gyr_Y.insets = new Insets(0, 0, 5, 0);
@@ -1697,7 +1673,7 @@ public final class ArduCopterGUI {
 		gbc_lblZ_2.gridy = 2;
 		Gyroskop.add(lblZ_2, gbc_lblZ_2);
 
-		gyr_Z = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		gyr_Z = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_gyr_Z = new GridBagConstraints();
 		gbc_gyr_Z.anchor = GridBagConstraints.EAST;
 		gbc_gyr_Z.gridx = 1;
@@ -1714,10 +1690,8 @@ public final class ArduCopterGUI {
 		 * horizon.setBorder(null); panel.add(horizon, gbc_horizon);
 		 */
 
-		String QFE = new WebValue()
-				.getWebValue(
-						Messages.getString("Weather.URL"), //$NON-NLS-1$
-						Messages.getString("Weather.Selector")); //$NON-NLS-1$
+		String QFE = new WebValue().getWebValue(Messages.getString("Weather.URL"), //$NON-NLS-1$
+				Messages.getString("Weather.Selector")); //$NON-NLS-1$
 
 		Filter = new JPanel();
 		Filter.setBorder(new TitledBorder(null, Messages.getString("Title.Filter"), TitledBorder.LEADING, //$NON-NLS-1$
@@ -1732,8 +1706,7 @@ public final class ArduCopterGUI {
 		GridBagLayout gbl_Filter = new GridBagLayout();
 		gbl_Filter.columnWidths = new int[] { 53, 0, 53, 0 };
 		gbl_Filter.rowHeights = new int[] { 24, 24, 0, 0 };
-		gbl_Filter.columnWeights = new double[] { 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_Filter.columnWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_Filter.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		Filter.setLayout(gbl_Filter);
 
@@ -1760,14 +1733,14 @@ public final class ArduCopterGUI {
 		Filter.add(lblRoll_2, gbc_lblRoll_2);
 		lblRoll_2.setHorizontalAlignment(SwingConstants.LEFT);
 
-		compRoll = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		compRoll = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_compRoll = new GridBagConstraints();
 		gbc_compRoll.insets = new Insets(0, 0, 5, 5);
 		gbc_compRoll.gridx = 1;
 		gbc_compRoll.gridy = 1;
 		Filter.add(compRoll, gbc_compRoll);
 
-		calRoll = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		calRoll = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_calRoll = new GridBagConstraints();
 		gbc_calRoll.insets = new Insets(0, 0, 5, 0);
 		gbc_calRoll.gridx = 2;
@@ -1783,14 +1756,14 @@ public final class ArduCopterGUI {
 		Filter.add(lblPitch_2, gbc_lblPitch_2);
 		lblPitch_2.setHorizontalAlignment(SwingConstants.LEFT);
 
-		compPitch = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		compPitch = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_compPitch = new GridBagConstraints();
 		gbc_compPitch.insets = new Insets(0, 0, 0, 5);
 		gbc_compPitch.gridx = 1;
 		gbc_compPitch.gridy = 2;
 		Filter.add(compPitch, gbc_compPitch);
 
-		calPitch = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$ //$NON-NLS-1$
+		calPitch = new JLabel(Messages.getString("Sonderzeichen.NA")); //$NON-NLS-1$
 		GridBagConstraints gbc_calPitch = new GridBagConstraints();
 		gbc_calPitch.gridx = 2;
 		gbc_calPitch.gridy = 2;
@@ -1809,12 +1782,10 @@ public final class ArduCopterGUI {
 		GridBagLayout gbl_Motorstatus = new GridBagLayout();
 		gbl_Motorstatus.columnWidths = new int[] { 86, 114, 0 };
 		gbl_Motorstatus.rowHeights = new int[] { 0, 14, 14, 14, 14, 17, 0 };
-		gbl_Motorstatus.columnWeights = new double[] { 0.0, 0.0,
-				Double.MIN_VALUE };
-		gbl_Motorstatus.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_Motorstatus.columnWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
+		gbl_Motorstatus.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		Motorstatus.setLayout(gbl_Motorstatus);
-		
+
 		chckbxMotorenAn = new JCheckBox(Messages.getString("MotorSwitchOn")); //$NON-NLS-1$
 		GridBagConstraints gbc_chckbxMotorenAn = new GridBagConstraints();
 		gbc_chckbxMotorenAn.gridwidth = 2;
@@ -1922,8 +1893,7 @@ public final class ArduCopterGUI {
 		GridBagLayout gbl_Horizonfilter = new GridBagLayout();
 		gbl_Horizonfilter.columnWidths = new int[] { 49, 53, 108, 0 };
 		gbl_Horizonfilter.rowHeights = new int[] { 24, 0 };
-		gbl_Horizonfilter.columnWeights = new double[] { 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_Horizonfilter.columnWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_Horizonfilter.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 		Horizonfilter.setLayout(gbl_Horizonfilter);
 
@@ -1980,10 +1950,10 @@ public final class ArduCopterGUI {
 		gbc_lblNN.gridx = 1;
 		gbc_lblNN.gridy = 0;
 		Weather.add(lblNN, gbc_lblNN);
-		
+
 		PID_Regler = new JPanel();
 		PID_Regler.setBorder(new TitledBorder(null, Messages.getString("Title.PID"), //$NON-NLS-1$
-						TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagConstraints gbc_PID_Regler = new GridBagConstraints();
 		gbc_PID_Regler.gridwidth = 2;
 		gbc_PID_Regler.insets = new Insets(0, 0, 0, 5);
@@ -1992,12 +1962,12 @@ public final class ArduCopterGUI {
 		gbc_PID_Regler.gridy = 4;
 		panel.add(PID_Regler, gbc_PID_Regler);
 		GridBagLayout gbl_PID_Regler = new GridBagLayout();
-		gbl_PID_Regler.columnWidths = new int[]{515, 0};
-		gbl_PID_Regler.rowHeights = new int[]{14, 14, 0};
-		gbl_PID_Regler.columnWeights = new double[]{0.0, Double.MIN_VALUE};
-		gbl_PID_Regler.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_PID_Regler.columnWidths = new int[] { 515, 0 };
+		gbl_PID_Regler.rowHeights = new int[] { 14, 14, 0 };
+		gbl_PID_Regler.columnWeights = new double[] { 0.0, Double.MIN_VALUE };
+		gbl_PID_Regler.rowWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
 		PID_Regler.setLayout(gbl_PID_Regler);
-		
+
 		panel_1 = new JPanel();
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
 		gbc_panel_1.fill = GridBagConstraints.HORIZONTAL;
@@ -2006,14 +1976,14 @@ public final class ArduCopterGUI {
 		gbc_panel_1.gridy = 0;
 		PID_Regler.add(panel_1, gbc_panel_1);
 		panel_1.setBorder(new TitledBorder(null, Messages.getString("PID.Fine"), //$NON-NLS-1$
-						TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[]{49, 53, 233, 0};
-		gbl_panel_1.rowHeights = new int[]{24, 0, 0, 0};
-		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_1.columnWidths = new int[] { 49, 53, 233, 0 };
+		gbl_panel_1.rowHeights = new int[] { 24, 0, 0, 0 };
+		gbl_panel_1.columnWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel_1.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panel_1.setLayout(gbl_panel_1);
-		
+
 		lblPAnteil = new JLabel(Messages.getString("Label.P")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblPAnteil = new GridBagConstraints();
 		gbc_lblPAnteil.insets = new Insets(0, 0, 5, 5);
@@ -2021,7 +1991,7 @@ public final class ArduCopterGUI {
 		gbc_lblPAnteil.gridy = 0;
 		panel_1.add(lblPAnteil, gbc_lblPAnteil);
 		lblPAnteil.setToolTipText(Messages.getString("Infotext.P-Regler")); //$NON-NLS-1$
-		
+
 		slider = new JSlider();
 		GridBagConstraints gbc_slider = new GridBagConstraints();
 		gbc_slider.insets = new Insets(0, 0, 5, 5);
@@ -2029,7 +1999,7 @@ public final class ArduCopterGUI {
 		gbc_slider.gridy = 0;
 		panel_1.add(slider, gbc_slider);
 		slider.setToolTipText(Messages.getString("Infotext.P-Regler")); //$NON-NLS-1$
-		
+
 		progressBar_2 = new JProgressBar();
 		GridBagConstraints gbc_progressBar_2 = new GridBagConstraints();
 		gbc_progressBar_2.fill = GridBagConstraints.HORIZONTAL;
@@ -2038,7 +2008,7 @@ public final class ArduCopterGUI {
 		gbc_progressBar_2.gridy = 0;
 		panel_1.add(progressBar_2, gbc_progressBar_2);
 		progressBar_2.setToolTipText(Messages.getString("Infotext.P-Regler")); //$NON-NLS-1$
-		
+
 		lblIAnteil = new JLabel(Messages.getString("Label.I")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblIAnteil = new GridBagConstraints();
 		gbc_lblIAnteil.insets = new Insets(0, 0, 5, 5);
@@ -2046,7 +2016,7 @@ public final class ArduCopterGUI {
 		gbc_lblIAnteil.gridy = 1;
 		panel_1.add(lblIAnteil, gbc_lblIAnteil);
 		lblIAnteil.setToolTipText(Messages.getString("Infotext.I-Regler")); //$NON-NLS-1$
-		
+
 		slider_1 = new JSlider();
 		GridBagConstraints gbc_slider_1 = new GridBagConstraints();
 		gbc_slider_1.insets = new Insets(0, 0, 5, 5);
@@ -2054,7 +2024,7 @@ public final class ArduCopterGUI {
 		gbc_slider_1.gridy = 1;
 		panel_1.add(slider_1, gbc_slider_1);
 		slider_1.setToolTipText(Messages.getString("Infotext.I-Regler")); //$NON-NLS-1$
-		
+
 		progressBar_3 = new JProgressBar();
 		GridBagConstraints gbc_progressBar_3 = new GridBagConstraints();
 		gbc_progressBar_3.fill = GridBagConstraints.HORIZONTAL;
@@ -2065,7 +2035,7 @@ public final class ArduCopterGUI {
 		progressBar_3.setToolTipText(Messages.getString("Infotext.I-Regler")); //$NON-NLS-1$
 		progressBar_3.setMinimum(1060);
 		progressBar_3.setMaximum(1880);
-		
+
 		lblDAnteil = new JLabel(Messages.getString("Label.D")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblDAnteil = new GridBagConstraints();
 		gbc_lblDAnteil.insets = new Insets(0, 0, 0, 5);
@@ -2073,7 +2043,7 @@ public final class ArduCopterGUI {
 		gbc_lblDAnteil.gridy = 2;
 		panel_1.add(lblDAnteil, gbc_lblDAnteil);
 		lblDAnteil.setToolTipText(Messages.getString("Infotext.D-Regler")); //$NON-NLS-1$
-		
+
 		slider_2 = new JSlider();
 		GridBagConstraints gbc_slider_2 = new GridBagConstraints();
 		gbc_slider_2.insets = new Insets(0, 0, 0, 5);
@@ -2081,7 +2051,7 @@ public final class ArduCopterGUI {
 		gbc_slider_2.gridy = 2;
 		panel_1.add(slider_2, gbc_slider_2);
 		slider_2.setToolTipText(Messages.getString("Infotext.D-Regler")); //$NON-NLS-1$
-		
+
 		progressBar_4 = new JProgressBar();
 		GridBagConstraints gbc_progressBar_4 = new GridBagConstraints();
 		gbc_progressBar_4.fill = GridBagConstraints.HORIZONTAL;
@@ -2091,7 +2061,7 @@ public final class ArduCopterGUI {
 		progressBar_4.setToolTipText(Messages.getString("Infotext.D-Regler")); //$NON-NLS-1$
 		progressBar_4.setMinimum(1060);
 		progressBar_4.setMaximum(1880);
-		
+
 		panel_2 = new JPanel();
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
 		gbc_panel_2.fill = GridBagConstraints.HORIZONTAL;
@@ -2099,14 +2069,14 @@ public final class ArduCopterGUI {
 		gbc_panel_2.gridy = 1;
 		PID_Regler.add(panel_2, gbc_panel_2);
 		panel_2.setBorder(new TitledBorder(null, Messages.getString("PID.Aggressive"), //$NON-NLS-1$
-								TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
-		gbl_panel_2.columnWidths = new int[]{49, 53, 233, 0};
-		gbl_panel_2.rowHeights = new int[]{24, 0, 0, 0};
-		gbl_panel_2.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_2.columnWidths = new int[] { 49, 53, 233, 0 };
+		gbl_panel_2.rowHeights = new int[] { 24, 0, 0, 0 };
+		gbl_panel_2.columnWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel_2.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panel_2.setLayout(gbl_panel_2);
-		
+
 		label = new JLabel(Messages.getString("Label.P")); //$NON-NLS-1$
 		label.setToolTipText(Messages.getString("Infotext.P-Regler")); //$NON-NLS-1$
 		GridBagConstraints gbc_label = new GridBagConstraints();
@@ -2114,7 +2084,7 @@ public final class ArduCopterGUI {
 		gbc_label.gridx = 0;
 		gbc_label.gridy = 0;
 		panel_2.add(label, gbc_label);
-		
+
 		slider_6 = new JSlider();
 		slider_6.setToolTipText(Messages.getString("Infotext.P-Regler")); //$NON-NLS-1$
 		GridBagConstraints gbc_slider_6 = new GridBagConstraints();
@@ -2122,7 +2092,7 @@ public final class ArduCopterGUI {
 		gbc_slider_6.gridx = 1;
 		gbc_slider_6.gridy = 0;
 		panel_2.add(slider_6, gbc_slider_6);
-		
+
 		progressBar_8 = new JProgressBar();
 		progressBar_8.setToolTipText(Messages.getString("Infotext.P-Regler")); //$NON-NLS-1$
 		GridBagConstraints gbc_progressBar_8 = new GridBagConstraints();
@@ -2131,7 +2101,7 @@ public final class ArduCopterGUI {
 		gbc_progressBar_8.gridx = 2;
 		gbc_progressBar_8.gridy = 0;
 		panel_2.add(progressBar_8, gbc_progressBar_8);
-		
+
 		label_1 = new JLabel(Messages.getString("Label.I")); //$NON-NLS-1$
 		label_1.setToolTipText(Messages.getString("Infotext.I-Regler")); //$NON-NLS-1$
 		GridBagConstraints gbc_label_1 = new GridBagConstraints();
@@ -2139,7 +2109,7 @@ public final class ArduCopterGUI {
 		gbc_label_1.gridx = 0;
 		gbc_label_1.gridy = 1;
 		panel_2.add(label_1, gbc_label_1);
-		
+
 		slider_7 = new JSlider();
 		slider_7.setToolTipText(Messages.getString("Infotext.I-Regler")); //$NON-NLS-1$
 		GridBagConstraints gbc_slider_7 = new GridBagConstraints();
@@ -2147,7 +2117,7 @@ public final class ArduCopterGUI {
 		gbc_slider_7.gridx = 1;
 		gbc_slider_7.gridy = 1;
 		panel_2.add(slider_7, gbc_slider_7);
-		
+
 		progressBar_9 = new JProgressBar();
 		progressBar_9.setToolTipText(Messages.getString("Infotext.I-Regler")); //$NON-NLS-1$
 		progressBar_9.setMinimum(1060);
@@ -2158,7 +2128,7 @@ public final class ArduCopterGUI {
 		gbc_progressBar_9.gridx = 2;
 		gbc_progressBar_9.gridy = 1;
 		panel_2.add(progressBar_9, gbc_progressBar_9);
-		
+
 		label_2 = new JLabel(Messages.getString("Label.D")); //$NON-NLS-1$
 		label_2.setToolTipText(Messages.getString("Infotext.D-Regler")); //$NON-NLS-1$
 		GridBagConstraints gbc_label_2 = new GridBagConstraints();
@@ -2166,7 +2136,7 @@ public final class ArduCopterGUI {
 		gbc_label_2.gridx = 0;
 		gbc_label_2.gridy = 2;
 		panel_2.add(label_2, gbc_label_2);
-		
+
 		slider_8 = new JSlider();
 		slider_8.setToolTipText(Messages.getString("Infotext.D-Regler")); //$NON-NLS-1$
 		GridBagConstraints gbc_slider_8 = new GridBagConstraints();
@@ -2174,7 +2144,7 @@ public final class ArduCopterGUI {
 		gbc_slider_8.gridx = 1;
 		gbc_slider_8.gridy = 2;
 		panel_2.add(slider_8, gbc_slider_8);
-		
+
 		progressBar_10 = new JProgressBar();
 		progressBar_10.setToolTipText(Messages.getString("Infotext.D-Regler")); //$NON-NLS-1$
 		progressBar_10.setMinimum(1060);
@@ -2190,17 +2160,13 @@ public final class ArduCopterGUI {
 		tab_SerialMon.setLayout(new BorderLayout(0, 0));
 
 		JPanel serial_Controls = new JPanel();
-		serial_Controls
-				.setToolTipText(Messages.getString("Infotext.Controls")); //$NON-NLS-1$
+		serial_Controls.setToolTipText(Messages.getString("Infotext.Controls")); //$NON-NLS-1$
 		tab_SerialMon.add(serial_Controls, BorderLayout.NORTH);
 		GridBagLayout gbl_serial_Controls = new GridBagLayout();
-		gbl_serial_Controls.columnWidths = new int[] { 115, 0, 110, 0, 0, 0, 0,
-				0 };
+		gbl_serial_Controls.columnWidths = new int[] { 115, 0, 110, 0, 0, 0, 0, 0 };
 		gbl_serial_Controls.rowHeights = new int[] { 25, 0, 0 };
-		gbl_serial_Controls.columnWeights = new double[] { 1.0, 1.0, 0.0, 0.0,
-				0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_serial_Controls.rowWeights = new double[] { 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_serial_Controls.columnWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_serial_Controls.rowWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
 		serial_Controls.setLayout(gbl_serial_Controls);
 
 		serial_Device = new JComboBox<>();
@@ -2266,8 +2232,7 @@ public final class ArduCopterGUI {
 		txtFld_Input.addActionListener(new ActionListener_send());
 
 		chckbx_Echo = new JCheckBox(Messages.getString("Radio.Echo")); //$NON-NLS-1$
-		chckbx_Echo
-				.setToolTipText(Messages.getString("Infotext.Echo")); //$NON-NLS-1$
+		chckbx_Echo.setToolTipText(Messages.getString("Infotext.Echo")); //$NON-NLS-1$
 		GridBagConstraints gbc_chckbxEcho = new GridBagConstraints();
 		gbc_chckbxEcho.insets = new Insets(0, 0, 0, 5);
 		gbc_chckbxEcho.gridx = 4;
@@ -2283,8 +2248,7 @@ public final class ArduCopterGUI {
 		serial_Controls.add(chckbx_Log, gbc_chckBx_Log);
 
 		chckbx_Autoscroll = new JCheckBox(Messages.getString("Radio.Autoscroll")); //$NON-NLS-1$
-		chckbx_Autoscroll
-				.setToolTipText(Messages.getString("Infotext.Autoscroll")); //$NON-NLS-1$
+		chckbx_Autoscroll.setToolTipText(Messages.getString("Infotext.Autoscroll")); //$NON-NLS-1$
 		chckbx_Autoscroll.setSelected(true);
 		GridBagConstraints gbc_chckbxAutoscroll = new GridBagConstraints();
 		gbc_chckbxAutoscroll.gridx = 6;
@@ -2295,8 +2259,7 @@ public final class ArduCopterGUI {
 		tab_SerialMon.add(serial_Mon, BorderLayout.CENTER);
 
 		txtArea_Output = new JTextArea();
-		txtArea_Output
-				.setToolTipText(Messages.getString("Infotext.Editor")); //$NON-NLS-1$
+		txtArea_Output.setToolTipText(Messages.getString("Infotext.Editor")); //$NON-NLS-1$
 		txtArea_Output.setEditable(false);
 		serial_Mon.setViewportView(txtArea_Output);
 
@@ -2331,8 +2294,7 @@ public final class ArduCopterGUI {
 		gbl_Joystick.columnWidths = new int[] { 0, 0, 0 };
 		gbl_Joystick.rowHeights = new int[] { 0, 0, 0, 0 };
 		gbl_Joystick.columnWeights = new double[] { 1.0, 1.0, Double.MIN_VALUE };
-		gbl_Joystick.rowWeights = new double[] { 0.0, 1.0, 1.0,
-				Double.MIN_VALUE };
+		gbl_Joystick.rowWeights = new double[] { 0.0, 1.0, 1.0, Double.MIN_VALUE };
 		Joystick.setLayout(gbl_Joystick);
 
 		JPanel Controller = new JPanel();
@@ -2348,8 +2310,7 @@ public final class ArduCopterGUI {
 		GridBagLayout gbl_Controller = new GridBagLayout();
 		gbl_Controller.columnWidths = new int[] { 459, 484, 0 };
 		gbl_Controller.rowHeights = new int[] { 20, 0 };
-		gbl_Controller.columnWeights = new double[] { 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_Controller.columnWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
 		gbl_Controller.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 		Controller.setLayout(gbl_Controller);
 
@@ -2375,8 +2336,7 @@ public final class ArduCopterGUI {
 		gbl_Axes.columnWidths = new int[] { 100, 146, 146, 0 };
 		gbl_Axes.rowHeights = new int[] { 0, 100, 0, 0, 0, 0 };
 		gbl_Axes.columnWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_Axes.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0,
-				Double.MIN_VALUE };
+		gbl_Axes.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
 		Axes.setLayout(gbl_Axes);
 
 		lblXyAxes = new JLabel(Messages.getString("Joystick.XY")); //$NON-NLS-1$
@@ -2407,8 +2367,7 @@ public final class ArduCopterGUI {
 		gbl_for_Axes.columnWidths = new int[] { 0, 0 };
 		gbl_for_Axes.rowHeights = new int[] { 0, 0, 0, 0, 0 };
 		gbl_for_Axes.columnWeights = new double[] { 0.0, Double.MIN_VALUE };
-		gbl_for_Axes.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_for_Axes.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		for_Axes.setLayout(gbl_for_Axes);
 
 		lblZrotation = new JLabel(Messages.getString("Joystick.Z")); //$NON-NLS-1$
@@ -2468,10 +2427,8 @@ public final class ArduCopterGUI {
 		GridBagLayout gbl_Magnetometer_11 = new GridBagLayout();
 		gbl_Magnetometer_11.columnWidths = new int[] { 82, 82, 82, 0 };
 		gbl_Magnetometer_11.rowHeights = new int[] { 25, 0, 0, 0 };
-		gbl_Magnetometer_11.columnWeights = new double[] { 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
-		gbl_Magnetometer_11.rowWeights = new double[] { 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_Magnetometer_11.columnWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_Magnetometer_11.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		Controls.setLayout(gbl_Magnetometer_11);
 
 		JButton btnNewButton_2 = new JButton(Messages.getString("Joystick.Up")); //$NON-NLS-1$
@@ -2551,19 +2508,19 @@ public final class ArduCopterGUI {
 		rdbtnmntm_Baud_1.addActionListener(new ActionListener_setBaud());
 		rdbtnmntm_Baud.addActionListener(new ActionListener_setBaud());
 
-		javax.swing.Timer timee = new javax.swing.Timer(1000,
-				new ActionListener() {
+		javax.swing.Timer timee = new javax.swing.Timer(1000, new ActionListener() {
 
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						java.util.Date now = new java.util.Date();
-						String ss = DateFormat.getDateTimeInstance()
-								.format(now);
-						welcomedate.setText(ss);
-						welcomedate.setToolTipText(Messages.getString("Infotext.Time.Begin") + ss + Messages.getString("Infotext.Time.End")); //$NON-NLS-1$ //$NON-NLS-2$
-						txtArea_Output.append("test;"+Messages.getString("Infotext.Time.Begin") + ss + Messages.getString("Infotext.Time.End")+"\n");
-					}
-				});
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				java.util.Date now = new java.util.Date();
+				String ss = DateFormat.getDateTimeInstance().format(now);
+				welcomedate.setText(ss);
+				welcomedate.setToolTipText(
+						Messages.getString("Infotext.Time.Begin") + ss + Messages.getString("Infotext.Time.End")); //$NON-NLS-1$ //$NON-NLS-2$
+				txtArea_Output.append("test;" + Messages.getString("Infotext.Time.Begin") + ss
+						+ Messages.getString("Infotext.Time.End") + "\n");
+			}
+		});
 
 		timee.start();
 
@@ -2580,9 +2537,9 @@ public final class ArduCopterGUI {
 	}
 
 	public static void setXYAxis(int xPercentage, int yPercentage) {
-		//Graphics2D g2d = (Graphics2D) XY_Axes.getGraphics();
-		//g2d.clearRect(1, 1, XY_Axes.getWidth() - 2, XY_Axes.getHeight() - 2);
-		//g2d.fillOval(xPercentage, yPercentage, 10, 10);
+		// Graphics2D g2d = (Graphics2D) XY_Axes.getGraphics();
+		// g2d.clearRect(1, 1, XY_Axes.getWidth() - 2, XY_Axes.getHeight() - 2);
+		// g2d.fillOval(xPercentage, yPercentage, 10, 10);
 	}
 
 	public static void setControllerButtons(JPanel buttonsPanel) {
@@ -2595,12 +2552,10 @@ public final class ArduCopterGUI {
 		int circleSize = 100;
 
 		Graphics2D g2d = (Graphics2D) hat_Switch.getGraphics();
-		g2d.clearRect(5, 15, hat_Switch.getWidth() - 10,
-				hat_Switch.getHeight() - 22);
+		g2d.clearRect(5, 15, hat_Switch.getWidth() - 10, hat_Switch.getHeight() - 22);
 		g2d.drawOval(20, 22, circleSize, circleSize);
 
-		if (Float.compare(hatSwitchPosition,
-				net.java.games.input.Component.POV.OFF) == 0)
+		if (Float.compare(hatSwitchPosition, net.java.games.input.Component.POV.OFF) == 0)
 			return;
 
 		int smallCircleSize = 10;
@@ -2616,36 +2571,28 @@ public final class ArduCopterGUI {
 
 		g2d.setColor(Color.blue);
 
-		if (Float.compare(hatSwitchPosition,
-				net.java.games.input.Component.POV.UP) == 0) {
+		if (Float.compare(hatSwitchPosition, net.java.games.input.Component.POV.UP) == 0) {
 			x = upCircleX;
 			y = upCircleY;
-		} else if (Float.compare(hatSwitchPosition,
-				net.java.games.input.Component.POV.DOWN) == 0) {
+		} else if (Float.compare(hatSwitchPosition, net.java.games.input.Component.POV.DOWN) == 0) {
 			x = upCircleX;
 			y = upCircleY + circleSize;
-		} else if (Float.compare(hatSwitchPosition,
-				net.java.games.input.Component.POV.LEFT) == 0) {
+		} else if (Float.compare(hatSwitchPosition, net.java.games.input.Component.POV.LEFT) == 0) {
 			x = leftCircleX;
 			y = leftCircleY;
-		} else if (Float.compare(hatSwitchPosition,
-				net.java.games.input.Component.POV.RIGHT) == 0) {
+		} else if (Float.compare(hatSwitchPosition, net.java.games.input.Component.POV.RIGHT) == 0) {
 			x = leftCircleX + circleSize;
 			y = leftCircleY;
-		} else if (Float.compare(hatSwitchPosition,
-				net.java.games.input.Component.POV.UP_LEFT) == 0) {
+		} else if (Float.compare(hatSwitchPosition, net.java.games.input.Component.POV.UP_LEFT) == 0) {
 			x = upCircleX - betweenX;
 			y = upCircleY + betweenY;
-		} else if (Float.compare(hatSwitchPosition,
-				net.java.games.input.Component.POV.UP_RIGHT) == 0) {
+		} else if (Float.compare(hatSwitchPosition, net.java.games.input.Component.POV.UP_RIGHT) == 0) {
 			x = upCircleX + betweenX;
 			y = upCircleY + betweenY;
-		} else if (Float.compare(hatSwitchPosition,
-				net.java.games.input.Component.POV.DOWN_LEFT) == 0) {
+		} else if (Float.compare(hatSwitchPosition, net.java.games.input.Component.POV.DOWN_LEFT) == 0) {
 			x = upCircleX - betweenX;
 			y = upCircleY + circleSize - betweenY;
-		} else if (Float.compare(hatSwitchPosition,
-				net.java.games.input.Component.POV.DOWN_RIGHT) == 0) {
+		} else if (Float.compare(hatSwitchPosition, net.java.games.input.Component.POV.DOWN_RIGHT) == 0) {
 			x = upCircleX + betweenX;
 			y = upCircleY + circleSize - betweenY;
 		}
@@ -2662,130 +2609,73 @@ public final class ArduCopterGUI {
 	@SuppressWarnings("unused")
 	private void initComponents() {
 
-		XY_Axes.setBorder(javax.swing.BorderFactory.createTitledBorder(null,
-				Messages.getString("Title.Axes"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, //$NON-NLS-1$
-				javax.swing.border.TitledBorder.DEFAULT_POSITION, null,
-				new java.awt.Color(0, 51, 204)));
+		XY_Axes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, Messages.getString("Title.Axes"), //$NON-NLS-1$
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
+				javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(0, 51, 204)));
 
-		XY_Axes.setBorder(javax.swing.BorderFactory
-				.createLineBorder(new java.awt.Color(0, 0, 0)));
+		XY_Axes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 		XY_Axes.setPreferredSize(new java.awt.Dimension(111, 111));
 
-		javax.swing.GroupLayout jPanelXYAxisLayout = new javax.swing.GroupLayout(
-				XY_Axes);
+		javax.swing.GroupLayout jPanelXYAxisLayout = new javax.swing.GroupLayout(XY_Axes);
 		XY_Axes.setLayout(jPanelXYAxisLayout);
 		jPanelXYAxisLayout.setHorizontalGroup(jPanelXYAxisLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 109, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 109, Short.MAX_VALUE));
 		jPanelXYAxisLayout.setVerticalGroup(jPanelXYAxisLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 109, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 109, Short.MAX_VALUE));
 
-		javax.swing.GroupLayout jPanel_forAxisLayout = new javax.swing.GroupLayout(
-				for_Axes);
+		javax.swing.GroupLayout jPanel_forAxisLayout = new javax.swing.GroupLayout(for_Axes);
 		for_Axes.setLayout(jPanel_forAxisLayout);
 		jPanel_forAxisLayout.setHorizontalGroup(jPanel_forAxisLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 202, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 202, Short.MAX_VALUE));
 		jPanel_forAxisLayout.setVerticalGroup(jPanel_forAxisLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 0, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
 
-		javax.swing.GroupLayout jPanelAxesLayout = new javax.swing.GroupLayout(
-				XY_Axes);
+		javax.swing.GroupLayout jPanelAxesLayout = new javax.swing.GroupLayout(XY_Axes);
 		XY_Axes.setLayout(jPanelAxesLayout);
-		jPanelAxesLayout
-				.setHorizontalGroup(jPanelAxesLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanelAxesLayout
-										.createSequentialGroup()
-										.addGroup(
-												jPanelAxesLayout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																jPanelAxesLayout
-																		.createSequentialGroup()
-																		.addGap(58,
-																				58,
-																				58)
-																		.addComponent(
-																				XY_Axes))
-														.addGroup(
-																jPanelAxesLayout
-																		.createSequentialGroup()
-																		.addGap(37,
-																				37,
-																				37)
-																		.addComponent(
-																				XY_Axes,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(
-												for_Axes,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addContainerGap()));
-		jPanelAxesLayout
-				.setVerticalGroup(jPanelAxesLayout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								jPanelAxesLayout
-										.createSequentialGroup()
-										.addComponent(for_Axes)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												XY_Axes,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 16, Short.MAX_VALUE))
-						.addComponent(for_Axes,
-								javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE,
-								Short.MAX_VALUE));
+		jPanelAxesLayout.setHorizontalGroup(jPanelAxesLayout
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanelAxesLayout.createSequentialGroup().addGroup(jPanelAxesLayout
+						.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(jPanelAxesLayout.createSequentialGroup().addGap(58, 58, 58).addComponent(XY_Axes))
+						.addGroup(jPanelAxesLayout.createSequentialGroup().addGap(37, 37, 37).addComponent(XY_Axes,
+								javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+								javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+								javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(for_Axes, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addContainerGap()));
+		jPanelAxesLayout.setVerticalGroup(jPanelAxesLayout
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(jPanelAxesLayout.createSequentialGroup().addComponent(for_Axes)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(XY_Axes, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addGap(0, 16, Short.MAX_VALUE))
+				.addComponent(for_Axes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+						Short.MAX_VALUE));
 
-		buttons.setBorder(javax.swing.BorderFactory.createTitledBorder(null,
-				Messages.getString("Title.Buttons"), //$NON-NLS-1$
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION, null,
-				new java.awt.Color(0, 51, 204)));
+		buttons.setBorder(javax.swing.BorderFactory.createTitledBorder(null, Messages.getString("Title.Buttons"), //$NON-NLS-1$
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				null, new java.awt.Color(0, 51, 204)));
 
-		javax.swing.GroupLayout jPanelButtonsLayout = new javax.swing.GroupLayout(
-				buttons);
+		javax.swing.GroupLayout jPanelButtonsLayout = new javax.swing.GroupLayout(buttons);
 		buttons.setLayout(jPanelButtonsLayout);
 		jPanelButtonsLayout.setHorizontalGroup(jPanelButtonsLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 248, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 248, Short.MAX_VALUE));
 		jPanelButtonsLayout.setVerticalGroup(jPanelButtonsLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 112, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 112, Short.MAX_VALUE));
 
-		hat_Switch.setBorder(javax.swing.BorderFactory.createTitledBorder(null,
-				Messages.getString("Title.Hat"), //$NON-NLS-1$
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION, null,
-				new java.awt.Color(0, 51, 204)));
+		hat_Switch.setBorder(javax.swing.BorderFactory.createTitledBorder(null, Messages.getString("Title.Hat"), //$NON-NLS-1$
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				null, new java.awt.Color(0, 51, 204)));
 
-		javax.swing.GroupLayout jPanelHatSwitchLayout = new javax.swing.GroupLayout(
-				hat_Switch);
+		javax.swing.GroupLayout jPanelHatSwitchLayout = new javax.swing.GroupLayout(hat_Switch);
 		hat_Switch.setLayout(jPanelHatSwitchLayout);
 		jPanelHatSwitchLayout.setHorizontalGroup(jPanelHatSwitchLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 121, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 121, Short.MAX_VALUE));
 		jPanelHatSwitchLayout.setVerticalGroup(jPanelHatSwitchLayout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGap(0, 0, Short.MAX_VALUE));
+				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
 
 		jComboBox_controllers.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2793,89 +2683,44 @@ public final class ArduCopterGUI {
 			}
 		});
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getFrame()
-				.getContentPane());
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getFrame().getContentPane());
 		getFrame().getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(
-														layout.createSequentialGroup()
-																.addGroup(
-																		layout.createParallelGroup(
-																				javax.swing.GroupLayout.Alignment.LEADING)
-																				.addGroup(
-																						layout.createSequentialGroup()
-																								.addComponent(
-																										buttons,
-																										javax.swing.GroupLayout.PREFERRED_SIZE,
-																										javax.swing.GroupLayout.DEFAULT_SIZE,
-																										javax.swing.GroupLayout.PREFERRED_SIZE)
-																								.addPreferredGap(
-																										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																								.addComponent(
-																										hat_Switch,
-																										javax.swing.GroupLayout.DEFAULT_SIZE,
-																										javax.swing.GroupLayout.DEFAULT_SIZE,
-																										Short.MAX_VALUE))
-																				.addComponent(
-																						XY_Axes,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						javax.swing.GroupLayout.DEFAULT_SIZE,
-																						Short.MAX_VALUE))
-																.addContainerGap())
-												.addGroup(
-														javax.swing.GroupLayout.Alignment.TRAILING,
-														layout.createSequentialGroup()
-																.addGap(0,
-																		0,
-																		Short.MAX_VALUE)
-																.addComponent(
-																		jComboBox_controllers,
-																		javax.swing.GroupLayout.PREFERRED_SIZE,
-																		237,
-																		javax.swing.GroupLayout.PREFERRED_SIZE)
-																.addGap(88, 88,
-																		88)))));
-		layout.setVerticalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addContainerGap(
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										Short.MAX_VALUE)
-								.addComponent(jComboBox_controllers,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(XY_Axes,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-								.addGroup(
-										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING,
-												false)
-												.addComponent(
-														buttons,
+		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout.createParallelGroup(
+						javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(layout
+								.createSequentialGroup().addGroup(layout
+										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
+												.createSequentialGroup().addComponent(
+														buttons, javax.swing.GroupLayout.PREFERRED_SIZE,
 														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE)
-												.addComponent(
-														hat_Switch,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														Short.MAX_VALUE))
-								.addContainerGap()));
+														javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(hat_Switch, javax.swing.GroupLayout.DEFAULT_SIZE,
+														javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+										.addComponent(XY_Axes, javax.swing.GroupLayout.DEFAULT_SIZE,
+												javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addContainerGap())
+						.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+								layout.createSequentialGroup().addGap(0, 0, Short.MAX_VALUE)
+										.addComponent(jComboBox_controllers, javax.swing.GroupLayout.PREFERRED_SIZE,
+												237, javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addGap(88, 88, 88)))));
+		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(jComboBox_controllers, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+						.addComponent(XY_Axes, javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+								.addComponent(buttons, javax.swing.GroupLayout.DEFAULT_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(hat_Switch, javax.swing.GroupLayout.DEFAULT_SIZE,
+										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addContainerGap()));
 
 		// pack();
 	}// </editor-fold>//GEN-END:initComponents

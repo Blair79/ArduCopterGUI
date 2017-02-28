@@ -32,11 +32,9 @@ public class SerialjsscCommunication {
 																		// port
 			serialPort.setParams(baudrate, dataBits, stopBits, parity);
 
-			serialPort.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_IN
-					| SerialPort.FLOWCONTROL_RTSCTS_OUT);
+			serialPort.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_IN | SerialPort.FLOWCONTROL_RTSCTS_OUT);
 
-			serialPort.addEventListener(new SerialjsscPortEventListener(),
-					SerialPort.MASK_RXCHAR);
+			serialPort.addEventListener(new SerialjsscPortEventListener(), SerialPort.MASK_RXCHAR);
 
 		} catch (SerialPortException ex) {
 			System.out.println(ex);
@@ -68,13 +66,9 @@ public class SerialjsscCommunication {
 		SerialjsscCommunication.serialPort = new SerialPort(portName);
 		try {
 			SerialjsscCommunication.serialPort.openPort();// Open serial port
-			SerialjsscCommunication.serialPort.setParams(
-					SerialjsscCommunication.baudrate,
-					SerialjsscCommunication.dataBits,
-					SerialjsscCommunication.stopBits,
-					SerialjsscCommunication.parity);// Set
-			SerialjsscCommunication.serialPort
-					.addEventListener(new SerialjsscPortEventListener());
+			SerialjsscCommunication.serialPort.setParams(SerialjsscCommunication.baudrate,
+					SerialjsscCommunication.dataBits, SerialjsscCommunication.stopBits, SerialjsscCommunication.parity);// Set
+			SerialjsscCommunication.serialPort.addEventListener(new SerialjsscPortEventListener());
 			// System.out.println(serialPort.readString());
 		} catch (final SerialPortException ex) {
 			System.out.println(ex);
@@ -112,9 +106,7 @@ public class SerialjsscCommunication {
 
 		if (SerialjsscCommunication.serialPortOpened != false) {
 			SerialjsscCommunication.closeSerialPort();
-			SerialjsscCommunication
-					.openSerialPort(SerialjsscCommunication.serialPort
-							.getPortName());
+			SerialjsscCommunication.openSerialPort(SerialjsscCommunication.serialPort.getPortName());
 		}
 	}
 

@@ -1,4 +1,5 @@
 package webComm;
+
 import java.io.IOException;
 
 import org.jsoup.Jsoup;
@@ -27,6 +28,6 @@ public class WebValue {
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
-		return " 1013.6 ";	
+		return " 1013.6 ";
 	}
 }

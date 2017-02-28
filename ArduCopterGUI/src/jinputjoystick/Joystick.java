@@ -50,21 +50,20 @@ public class Joystick {
 	 * Controller.Type.FINGERSTICK.
 	 */
 	private void searchForControllers() {
-		Controller[] controllers = ControllerEnvironment
-				.getDefaultEnvironment().getControllers();
+		Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
 
 		for (int i = 0; i < controllers.length; i++) {
 			Controller controller = controllers[i];
 
-			if (controller.getType() == Controller.Type.STICK
-					|| controller.getType() == Controller.Type.GAMEPAD
+			if (controller.getType() == Controller.Type.STICK || controller.getType() == Controller.Type.GAMEPAD
 					|| controller.getType() == Controller.Type.WHEEL
 					|| controller.getType() == Controller.Type.FINGERSTICK) {
 				// Add new controller to the list of all controllers.
 				foundControllers.add(controller);
 
 				// Add new controller to the list on the joywindow.
-				ArduCopterGUI.addControllerName(controller.getName() + " - " + controller.getType().toString() + " type");
+				ArduCopterGUI
+						.addControllerName(controller.getName() + " - " + controller.getType().toString() + " type");
 			}
 		}
 	}
@@ -75,10 +74,8 @@ public class Joystick {
 	private void startShowingControllerData() {
 		while (true) {
 			// Currently selected controller.
-			int selectedControllerIndex = ArduCopterGUI
-					.getSelectedControllerName();
-			Controller controller = foundControllers
-					.get(selectedControllerIndex);
+			int selectedControllerIndex = ArduCopterGUI.getSelectedControllerName();
+			Controller controller = foundControllers.get(selectedControllerIndex);
 
 			// Pull controller for current data, and break while loop if
 			// controller is disconnected.
@@ -91,13 +88,11 @@ public class Joystick {
 			int xAxisPercentage = 0;
 			int yAxisPercentage = 0;
 			// JPanel for other axes.
-			JPanel axesPanel = new JPanel(
-					new FlowLayout(FlowLayout.LEFT, 25, 2));
+			JPanel axesPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 25, 2));
 			axesPanel.setBounds(0, 0, 200, 190);
 
 			// JPanel for controller buttons
-			JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 1,
-					1));
+			JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 1, 1));
 			buttonsPanel.setBounds(6, 19, 246, 110);
 
 			// Go trough all components of the controller.
@@ -132,8 +127,7 @@ public class Joystick {
 					buttonIndex = component.getIdentifier().toString();
 
 					// Create and add new button to panel.
-					JToggleButton aToggleButton = new JToggleButton(
-							buttonIndex, isItPressed);
+					JToggleButton aToggleButton = new JToggleButton(buttonIndex, isItPressed);
 					aToggleButton.setPreferredSize(new Dimension(48, 25));
 					aToggleButton.setEnabled(false);
 					buttonsPanel.add(aToggleButton);
@@ -145,8 +139,8 @@ public class Joystick {
 
 				// Hat switch
 				if (componentIdentifier == Component.Identifier.Axis.POV) {
-					//float hatSwitchPosition = component.getPollData();
-					//ArduCopterGUI.setHatSwitch(hatSwitchPosition);
+					// float hatSwitchPosition = component.getPollData();
+					// ArduCopterGUI.setHatSwitch(hatSwitchPosition);
 
 					// We know that this component was hat switch so we can skip
 					// to next component.
@@ -190,8 +184,7 @@ public class Joystick {
 			try {
 				Thread.sleep(25);
 			} catch (InterruptedException ex) {
-				Logger.getLogger(Joystick.class.getName()).log(Level.SEVERE,
-						null, ex);
+				Logger.getLogger(Joystick.class.getName()).log(Level.SEVERE, null, ex);
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 package serialComm;
+
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 

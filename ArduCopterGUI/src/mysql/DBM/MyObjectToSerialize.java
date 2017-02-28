@@ -13,6 +13,7 @@ package mysql.DBM;
  *
  */
 import java.io.Serializable;
+
 public class MyObjectToSerialize implements Serializable {
 
 	/**
@@ -22,11 +23,13 @@ public class MyObjectToSerialize implements Serializable {
 	private String firstName;
 	private String lastName;
 	private int age;
+
 	public MyObjectToSerialize(String firstName, String lastName, int age) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
 	}
+
 	public String toString() {
 		return firstName + " " + lastName + ", " + age;
 	}

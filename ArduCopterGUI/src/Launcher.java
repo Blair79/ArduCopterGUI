@@ -6,9 +6,8 @@ import net.java.games.input.Controller;
 import jinputjoystick.JInputJoystick;
 import jinputjoystick.Joystick;
 
-
 public class Launcher {
-	
+
 	/**
 	 * Launch the application.
 	 */
@@ -21,8 +20,8 @@ public class Launcher {
 				window.getFrame().setVisible(true);
 			}
 		});
-		//new JInputJoystick().pollControllerAndItsComponents(Controller.Type.STICK);
-		//new Joystick();	
+		 new JInputJoystick().pollControllerAndItsComponents(Controller.Type.STICK);
+		new Joystick();
 	}
 
 }

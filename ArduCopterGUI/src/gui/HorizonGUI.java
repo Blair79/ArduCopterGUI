@@ -1,4 +1,5 @@
 package gui;
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -85,42 +86,39 @@ public class HorizonGUI extends JPanel {
 		// Draw the line markers for bank angle
 		bankMarkerLong = new GeneralPath(Path2D.WIND_EVEN_ODD);
 		bankMarkerLong.moveTo(centerPoint.getX() - radius, centerPoint.getY());
-		bankMarkerLong.lineTo(centerPoint.getX() - radius + 20,
-				centerPoint.getY());
+		bankMarkerLong.lineTo(centerPoint.getX() - radius + 20, centerPoint.getY());
 
 		bankMarkerShort = new GeneralPath(Path2D.WIND_EVEN_ODD);
 		bankMarkerShort.moveTo(centerPoint.getX() - radius, centerPoint.getY());
-		bankMarkerShort.lineTo(centerPoint.getX() - radius + 10,
-				centerPoint.getY());
+		bankMarkerShort.lineTo(centerPoint.getX() - radius + 10, centerPoint.getY());
 
 		for (int i = 0; i < 5; i++) {
-			final AffineTransform ata = AffineTransform.getRotateInstance(
-					Math.toRadians(30), centerPoint.getX(), centerPoint.getY());
+			final AffineTransform ata = AffineTransform.getRotateInstance(Math.toRadians(30), centerPoint.getX(),
+					centerPoint.getY());
 			g2d.transform(ata);
 
 			g2d.draw(bankMarkerLong);
 
 		}
 
-		AffineTransform ata = AffineTransform.getRotateInstance(
-				Math.toRadians(260), centerPoint.getX(), centerPoint.getY());
+		AffineTransform ata = AffineTransform.getRotateInstance(Math.toRadians(260), centerPoint.getX(),
+				centerPoint.getY());
 		g2d.transform(ata);
 
 		for (int i = 0; i < 7; i++) {
-			final AffineTransform atb = AffineTransform.getRotateInstance(
-					Math.toRadians(10), centerPoint.getX(), centerPoint.getY());
+			final AffineTransform atb = AffineTransform.getRotateInstance(Math.toRadians(10), centerPoint.getX(),
+					centerPoint.getY());
 			g2d.transform(atb);
 
 			g2d.draw(bankMarkerShort);
 		}
 
-		ata = AffineTransform.getRotateInstance(Math.toRadians(110),
-				centerPoint.getX(), centerPoint.getY());
+		ata = AffineTransform.getRotateInstance(Math.toRadians(110), centerPoint.getX(), centerPoint.getY());
 		g2d.transform(ata);
 
 		for (int i = 0; i < 7; i++) {
-			final AffineTransform atb = AffineTransform.getRotateInstance(
-					Math.toRadians(10), centerPoint.getX(), centerPoint.getY());
+			final AffineTransform atb = AffineTransform.getRotateInstance(Math.toRadians(10), centerPoint.getX(),
+					centerPoint.getY());
 			g2d.transform(atb);
 
 			g2d.draw(bankMarkerShort);
@@ -132,28 +130,24 @@ public class HorizonGUI extends JPanel {
 		// Draw the triangle on the upper position
 		triangle = new GeneralPath(Path2D.WIND_EVEN_ODD);
 		triangle.moveTo(centerPoint.getX(), centerPoint.getY() - radius + 5);
-		triangle.lineTo(centerPoint.getX() - 15, centerPoint.getY() - radius
-				+ 30);
-		triangle.lineTo(centerPoint.getX() + 15, centerPoint.getY() - radius
-				+ 30);
+		triangle.lineTo(centerPoint.getX() - 15, centerPoint.getY() - radius + 30);
+		triangle.lineTo(centerPoint.getX() + 15, centerPoint.getY() - radius + 30);
 		triangle.closePath();
 
 		g2d.fill(triangle);
 
 		// Draw the triangle in the lower position
 		triangle.moveTo(centerPoint.getX(), centerPoint.getY() + radius - 5);
-		triangle.lineTo(centerPoint.getX() - 10, centerPoint.getY() + radius
-				- 25);
-		triangle.lineTo(centerPoint.getX() + 10, centerPoint.getY() + radius
-				- 25);
+		triangle.lineTo(centerPoint.getX() - 10, centerPoint.getY() + radius - 25);
+		triangle.lineTo(centerPoint.getX() + 10, centerPoint.getY() + radius - 25);
 		triangle.closePath();
 
 		g2d.draw(triangle);
 	}
 
 	private void drawBCardinaldirectionlable(final Graphics2D g2d) {
-		final AffineTransform at = AffineTransform.getRotateInstance(
-				Math.toRadians(60), centerPoint.getX(), centerPoint.getY());
+		final AffineTransform at = AffineTransform.getRotateInstance(Math.toRadians(60), centerPoint.getX(),
+				centerPoint.getY());
 		g2d.transform(at);
 		g2d.setPaint(Color.black);
 		g2d.drawString(Messages.getString("HorizonGUI.0"), 135, 40); //$NON-NLS-1$
@@ -163,8 +157,7 @@ public class HorizonGUI extends JPanel {
 
 		// Display the outline of the Horizon
 		roundHorizon = new Ellipse2D.Float(50, 50, 2 * radius, 2 * radius);
-		outline = new GradientPaint(20, 20, Color.white, 500, 500, Color.gray,
-				true);
+		outline = new GradientPaint(20, 20, Color.white, 500, 500, Color.gray, true);
 		g2d.setPaint(outline);
 		g2d.setStroke(new BasicStroke(6));
 
@@ -176,9 +169,8 @@ public class HorizonGUI extends JPanel {
 
 		// while (angle < 360) {
 		Cardinaldirection = // x, y, w, h, start, extend, type
-		new Arc2D.Double(50, 50, 200, 200, 89, 1, Arc2D.PIE);
-		final AffineTransform at = AffineTransform.getRotateInstance(
-				Math.toRadians(yawAngle), centerPoint.getX(),
+				new Arc2D.Double(50, 50, 200, 200, 89, 1, Arc2D.PIE);
+		final AffineTransform at = AffineTransform.getRotateInstance(Math.toRadians(yawAngle), centerPoint.getX(),
 				centerPoint.getY());
 
 		g2d.transform(at);
@@ -196,8 +188,7 @@ public class HorizonGUI extends JPanel {
 		final int angExtLower = 360;
 
 		// First step is to determine the roll display position
-		AffineTransform at = AffineTransform.getRotateInstance(
-				Math.toRadians(rollAngle), centerPoint.getX(),
+		AffineTransform at = AffineTransform.getRotateInstance(Math.toRadians(rollAngle), centerPoint.getX(),
 				centerPoint.getY());
 		g2d.transform(at);
 
@@ -213,8 +204,7 @@ public class HorizonGUI extends JPanel {
 		}
 
 		if (pitchAngle >= 90 && pitchAngle < 180) {
-			at = AffineTransform.getRotateInstance(Math.toRadians(180),
-					centerPoint.getX(), centerPoint.getY());
+			at = AffineTransform.getRotateInstance(Math.toRadians(180), centerPoint.getX(), centerPoint.getY());
 			g2d.transform(at);
 
 			angStartUpper = -(180 - pitchAngle); // Minus because of the
@@ -229,8 +219,7 @@ public class HorizonGUI extends JPanel {
 		}
 
 		if (pitchAngle <= -90 && pitchAngle > -180) {
-			at = AffineTransform.getRotateInstance(Math.toRadians(180),
-					centerPoint.getX(), centerPoint.getY());
+			at = AffineTransform.getRotateInstance(Math.toRadians(180), centerPoint.getX(), centerPoint.getY());
 			g2d.transform(at);
 
 			angStartUpper = 180 + pitchAngle; // Minus because of the
@@ -243,13 +232,13 @@ public class HorizonGUI extends JPanel {
 		}
 
 		// Draw the artificial horizon itself, composed by 2 half arcs
-		lowerArc.setArcByCenter(centerPoint.getX(), centerPoint.getY(), radius,
-				angStartLower, angExtLower, Arc2D.CHORD);
+		lowerArc.setArcByCenter(centerPoint.getX(), centerPoint.getY(), radius, angStartLower, angExtLower,
+				Arc2D.CHORD);
 		g2d.setPaint(orangeEarth);
 		g2d.fill(lowerArc);
 
-		upperArc.setArcByCenter(centerPoint.getX(), centerPoint.getY(), radius,
-				angStartUpper, angExtUpper, Arc2D.CHORD);
+		upperArc.setArcByCenter(centerPoint.getX(), centerPoint.getY(), radius, angStartUpper, angExtUpper,
+				Arc2D.CHORD);
 		g2d.setPaint(blueSky);
 		g2d.fill(upperArc);
 
@@ -260,8 +249,7 @@ public class HorizonGUI extends JPanel {
 
 		drawMarkers(g2d);
 
-		at = AffineTransform.getRotateInstance(Math.toRadians(-rollAngle),
-				centerPoint.getX(), centerPoint.getY());
+		at = AffineTransform.getRotateInstance(Math.toRadians(-rollAngle), centerPoint.getX(), centerPoint.getY());
 
 		g2d.transform(at);
 
@@ -295,53 +283,41 @@ public class HorizonGUI extends JPanel {
 			g2d.setFont(writing);
 
 			// Longer markers
-			markerLine = new Line2D.Float((float) (centerPoint.getX()
-					- dimMarker10Deg - distance),
-					(float) (centerPoint.getY() - radius
-							* Math.sin(Math.toRadians(angleCorrUp))),
+			markerLine = new Line2D.Float((float) (centerPoint.getX() - dimMarker10Deg - distance),
+					(float) (centerPoint.getY() - radius * Math.sin(Math.toRadians(angleCorrUp))),
 					(float) (centerPoint.getX() + dimMarker10Deg + distance),
-					(float) (centerPoint.getY() - radius
-							* Math.sin(Math.toRadians(angleCorrUp))));
+					(float) (centerPoint.getY() - radius * Math.sin(Math.toRadians(angleCorrUp))));
 
 			g2d.draw(markerLine);
 
 			// Short markers
-			markerLine = new Line2D.Float(
-					(float) (centerPoint.getX() - dimMarker5Deg),
-					(float) (centerPoint.getY() - radius
-							* Math.sin(Math.toRadians(angleCorrUp + 5))),
+			markerLine = new Line2D.Float((float) (centerPoint.getX() - dimMarker5Deg),
+					(float) (centerPoint.getY() - radius * Math.sin(Math.toRadians(angleCorrUp + 5))),
 					(float) (centerPoint.getX() + dimMarker5Deg),
-					(float) (centerPoint.getY() - radius
-							* Math.sin(Math.toRadians(angleCorrUp + 5))));
+					(float) (centerPoint.getY() - radius * Math.sin(Math.toRadians(angleCorrUp + 5))));
 
 			g2d.draw(markerLine);
 
 			// Writing routine
-			g2d.drawString(
-					Messages.getString("Sonderzeichen.Space") + angle, //$NON-NLS-1$
+			g2d.drawString(Messages.getString("Sonderzeichen.Space") + angle, //$NON-NLS-1$
 					(float) (centerPoint.getX() - dimMarker10Deg - distance - 25),
-					(float) (centerPoint.getY() - (radius
-							* Math.sin(Math.toRadians(angleCorrUp)) - 5)));
-			g2d.drawString(
-					Messages.getString("Sonderzeichen.Space") + angle, //$NON-NLS-1$
+					(float) (centerPoint.getY() - (radius * Math.sin(Math.toRadians(angleCorrUp)) - 5)));
+			g2d.drawString(Messages.getString("Sonderzeichen.Space") + angle, //$NON-NLS-1$
 					(float) (centerPoint.getX() + dimMarker10Deg + distance + 8),
-					(float) (centerPoint.getY() - (radius
-							* Math.sin(Math.toRadians(angleCorrUp)) - 5)));
+					(float) (centerPoint.getY() - (radius * Math.sin(Math.toRadians(angleCorrUp)) - 5)));
 
 		}
 
 		// Draw the center shape
 		centerShape = new GeneralPath(Path2D.WIND_EVEN_ODD);
-		centerShape.moveTo(centerPoint.getX() - radius / 2.5,
-				centerPoint.getY());
+		centerShape.moveTo(centerPoint.getX() - radius / 2.5, centerPoint.getY());
 		centerShape.lineTo(centerPoint.getX() - 25, centerPoint.getY());
 		centerShape.moveTo(centerPoint.getX() - 40, centerPoint.getY());
 		centerShape.lineTo(centerPoint.getX() - 20, centerPoint.getY() + 20);
 		centerShape.lineTo(centerPoint.getX(), centerPoint.getY());
 		centerShape.lineTo(centerPoint.getX() + 20, centerPoint.getY() + 20);
 		centerShape.lineTo(centerPoint.getX() + 40, centerPoint.getY());
-		centerShape.moveTo(centerPoint.getX() + radius / 2.5,
-				centerPoint.getY());
+		centerShape.moveTo(centerPoint.getX() + radius / 2.5, centerPoint.getY());
 		centerShape.lineTo(centerPoint.getX() + 25, centerPoint.getY());
 
 		g2d.setPaint(Color.white);
@@ -378,8 +354,7 @@ public class HorizonGUI extends JPanel {
 		super.paintComponent(g);
 		final Graphics2D g2d = (Graphics2D) g;
 
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-				RenderingHints.VALUE_ANTIALIAS_ON);
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
 		drawHorizon(g2d);
 

@@ -1,4 +1,5 @@
 package serialComm;
+
 import gnu.io.CommPortIdentifier;
 import gnu.io.PortInUseException;
 import gnu.io.SerialPort;
@@ -41,13 +42,10 @@ public class SerialrxtxCommunication {
 			// System.out.println("Serialport bereits geöffnet");
 			return false;
 		// System.out.println("Öffne Serialport");
-		SerialrxtxCommunication.enumComm = CommPortIdentifier
-				.getPortIdentifiers();
+		SerialrxtxCommunication.enumComm = CommPortIdentifier.getPortIdentifiers();
 		while (SerialrxtxCommunication.enumComm.hasMoreElements()) {
-			SerialrxtxCommunication.serialPortId = (CommPortIdentifier) SerialrxtxCommunication.enumComm
-					.nextElement();
-			if (portName.contentEquals(SerialrxtxCommunication.serialPortId
-					.getName())) {
+			SerialrxtxCommunication.serialPortId = (CommPortIdentifier) SerialrxtxCommunication.enumComm.nextElement();
+			if (portName.contentEquals(SerialrxtxCommunication.serialPortId.getName())) {
 				foundPort = true;
 				break;
 			}
@@ -62,32 +60,27 @@ public class SerialrxtxCommunication {
 			// System.out.println("Port belegt");
 		}
 		try {
-			SerialrxtxCommunication.outputStream = SerialrxtxCommunication.serialPort
-					.getOutputStream();
+			SerialrxtxCommunication.outputStream = SerialrxtxCommunication.serialPort.getOutputStream();
 		} catch (final IOException e) {
 			// System.out.println("Keinen Zugriff auf OutputStream");
 		}
 		try {
-			SerialrxtxCommunication.inputStream = SerialrxtxCommunication.serialPort
-					.getInputStream();
+			SerialrxtxCommunication.inputStream = SerialrxtxCommunication.serialPort.getInputStream();
 		} catch (final IOException e) {
 			// System.out.println("Keinen Zugriff auf InputStream");
 		}
 		try {
-			SerialrxtxCommunication.serialPort
-					.addEventListener(new SerialrxtxPortEventListener());
+			SerialrxtxCommunication.serialPort.addEventListener(new SerialrxtxPortEventListener());
 		} catch (final TooManyListenersException e) {
 			// System.out.println("TooManyListenersException für Serialport");
 		}
 		SerialrxtxCommunication.serialPort.notifyOnDataAvailable(true);
 		try {
-			SerialrxtxCommunication.serialPort.setSerialPortParams(
-					SerialrxtxCommunication.baudrate,
-					SerialrxtxCommunication.dataBits,
-					SerialrxtxCommunication.stopBits,
-					SerialrxtxCommunication.parity);
+			SerialrxtxCommunication.serialPort.setSerialPortParams(SerialrxtxCommunication.baudrate,
+					SerialrxtxCommunication.dataBits, SerialrxtxCommunication.stopBits, SerialrxtxCommunication.parity);
 		} catch (final UnsupportedCommOperationException e) {
-			// System.out.println("Konnte Schnittstellen-Paramter nicht setzen");
+			// System.out.println("Konnte Schnittstellen-Paramter nicht
+			// setzen");
 		}
 
 		SerialrxtxCommunication.serialPortOpened = true;
@@ -100,15 +93,12 @@ public class SerialrxtxCommunication {
 			// System.out.println("Serialport ist geöffnet");
 			return;
 		ArduCopterGUI.clear_Device();
-		SerialrxtxCommunication.enumComm = CommPortIdentifier
-				.getPortIdentifiers();
+		SerialrxtxCommunication.enumComm = CommPortIdentifier.getPortIdentifiers();
 		while (SerialrxtxCommunication.enumComm.hasMoreElements()) {
-			SerialrxtxCommunication.serialPortId = (CommPortIdentifier) SerialrxtxCommunication.enumComm
-					.nextElement();
+			SerialrxtxCommunication.serialPortId = (CommPortIdentifier) SerialrxtxCommunication.enumComm.nextElement();
 			if (SerialrxtxCommunication.serialPortId.getPortType() == CommPortIdentifier.PORT_SERIAL) {
 				// System.out.println("Found:" + serialPortId.getName());
-				ArduCopterGUI.set_Device(SerialrxtxCommunication.serialPortId
-						.getName());
+				ArduCopterGUI.set_Device(SerialrxtxCommunication.serialPortId.getName());
 			}
 		}
 	}
@@ -129,8 +119,7 @@ public class SerialrxtxCommunication {
 			final byte[] data = new byte[150];
 			int num;
 			while (SerialrxtxCommunication.inputStream.available() > 0) {
-				num = SerialrxtxCommunication.inputStream.read(data, 0,
-						data.length);
+				num = SerialrxtxCommunication.inputStream.read(data, 0, data.length);
 				ArduCopterGUI.set_Output(new String(data, 0, num));
 			}
 		} catch (final IOException e) {
@@ -143,9 +132,7 @@ public class SerialrxtxCommunication {
 
 		if (SerialrxtxCommunication.serialPortOpened != false) {
 			SerialrxtxCommunication.closeSerialPort();
-			SerialrxtxCommunication
-					.openSerialPort(SerialrxtxCommunication.serialPortId
-							.getName());
+			SerialrxtxCommunication.openSerialPort(SerialrxtxCommunication.serialPortId.getName());
 		}
 	}
 }

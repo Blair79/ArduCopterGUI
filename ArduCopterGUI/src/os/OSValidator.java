@@ -38,8 +38,7 @@ public class OSValidator {
 	}
 
 	private boolean isUnix() {
-		return OS.toLowerCase().indexOf("nix") >= 0
-				|| OS.toLowerCase().indexOf("nux") >= 0
+		return OS.toLowerCase().indexOf("nix") >= 0 || OS.toLowerCase().indexOf("nux") >= 0
 				|| OS.toLowerCase().indexOf("aix") > 0;
 	}
 
