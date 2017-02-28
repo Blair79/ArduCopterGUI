@@ -20,7 +20,7 @@ public class Launcher {
 				window.getFrame().setVisible(true);
 			}
 		});
-		 new JInputJoystick().pollControllerAndItsComponents(Controller.Type.STICK);
+		new JInputJoystick().pollControllerAndItsComponents(Controller.Type.STICK);
 		new Joystick();
 	}
 

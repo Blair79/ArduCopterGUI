@@ -2610,8 +2610,8 @@ public final class ArduCopterGUI {
 	private void initComponents() {
 
 		XY_Axes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, Messages.getString("Title.Axes"), //$NON-NLS-1$
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-				javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(0, 51, 204)));
+				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
+				null, new java.awt.Color(0, 51, 204)));
 
 		XY_Axes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 		XY_Axes.setPreferredSize(new java.awt.Dimension(111, 111));
